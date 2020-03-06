@@ -1,7 +1,36 @@
 require "test_helper"
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+  include ActionView::Helpers::TranslationHelper
+
   driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+
+  def login_button
+    translate("helpers.submit.session.create")
+  end
+
+  def edit_content(attribute, value)
+    attribute_name = Page.human_attribute_name(attribute)
+
+    within(".trix-content + *", text: attribute_name) do
+      click_on translate("pages.edit_button.button")
+    end
+    fill_in_rich_text_area label(:page, attribute), with: value
+  end
+
+  def update_content(attribute, value)
+    edit_content(attribute, value)
+
+    click_on submit(:page, :update)
+  end
+
+  def label(model, attribute)
+    translate(attribute, scope: [:helpers, :label, model])
+  end
+
+  def submit(model, action)
+    translate(action, scope: [:helpers, :submit, model])
+  end
 
   # Locates a Trix editor and fills it in with the given HTML.
   #

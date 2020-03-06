@@ -4,9 +4,7 @@
   html: { "data-controller": "fragment-form" },
 ) do |form| %>
   <%= form.button do %>
-    <%= translate(
-      ".button_html",
-      attribute: tag.span(page.class.human_attribute_name(attribute))
-    ) %>
+    <%= translate(".button") %>
+    <%= tag.span(page.class.human_attribute_name(attribute)) %>
   <% end %>
 <% end %>

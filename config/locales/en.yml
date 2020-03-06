@@ -51,4 +51,4 @@ en:
 
   pages:
     edit_button:
-      button_html: "Edit %{attribute}"
+      button: "Edit"
