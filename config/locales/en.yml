@@ -34,12 +34,19 @@ en:
     application:
       not_authorized: "Can't edit without logging in"
 
+  examples:
+    index:
+      title: "The Original Title"
+      button: "Edit"
+
   helpers:
     label:
       page:
         body_text: "Body Text"
         hero_text: "Hero Text"
         headline_text: "Headline Text"
+      translation:
+        value: "Text"
 
     submit:
       page:
@@ -48,6 +55,9 @@ en:
       session:
         create: "Log in as Editor"
         destroy: "Log out"
+      translation:
+        create: "Save"
+        update: "Save"
 
   pages:
     edit_button:

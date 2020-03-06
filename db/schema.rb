@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_040945) do
+ActiveRecord::Schema.define(version: 2020_03_06_194835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2020_03_06_040945) do
   create_table "pages", force: :cascade do |t|
     t.string "slug", null: false
     t.index ["slug"], name: "index_pages_on_slug", unique: true
+  end
+
+  create_table "translations", force: :cascade do |t|
+    t.string "locale", null: false
+    t.string "key", null: false
+    t.text "value", null: false
+    t.text "interpolations"
+    t.boolean "is_proc", default: false
+    t.index ["locale", "key"], name: "index_translations_on_locale_and_key", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
