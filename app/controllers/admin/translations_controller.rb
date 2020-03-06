@@ -7,7 +7,7 @@ module Admin
         locale: I18n.locale,
       )
 
-      render locals: { translation: translation }
+      render locals: { translation: translation }, variant: :fragment
     end
 
     def create

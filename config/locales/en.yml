@@ -33,11 +33,14 @@ en:
   admin:
     application:
       not_authorized: "Can't edit without logging in"
+    translations:
+      edit_button:
+        button: "Edit"
 
   examples:
     index:
       title: "The Original Title"
-      button: "Edit"
+      body: "The Page's Body"
 
   helpers:
     label:
@@ -58,6 +61,7 @@ en:
       translation:
         create: "Save"
         update: "Save"
+        cancel: "Cancel"
 
   pages:
     edit_button:

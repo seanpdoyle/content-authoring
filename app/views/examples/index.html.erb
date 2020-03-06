@@ -1,18 +1,17 @@
 <h1 data-i18n-key="examples.index.title">
   <%= translate(".title") %>
 
-  <%= form_with(
-    url: edit_admin_fragment_translation_path("value", "examples.index.title"),
-    method: :get,
-    html: { "data-controller": "fragment-form" },
-  ) do |form| %>
-    <%= form.button do %>
-      <%= translate(".button") %>
-      <%= tag.span(translate(
-        "examples.index.title",
-        scope: [:translations, :keys],
-        default: "examples.index.title".split(".").map(&:humanize).join(": "),
-      )) %>
-    <% end %>
-  <% end %>
+  <%= render(
+    partial: "admin/translations/edit_button",
+    locals: { key: "examples.index.title" },
+  ) %>
 </h1>
+
+<div data-i18n-key="examples.index.body">
+  <%= translate(".body") %>
+
+  <%= render(
+    partial: "admin/translations/edit_button",
+    locals: { key: "examples.index.body" },
+  ) %>
+</div>

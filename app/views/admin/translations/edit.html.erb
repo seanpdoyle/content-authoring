@@ -2,6 +2,7 @@
   model: translation,
   url: admin_translations_path,
   method: :post,
+  html: { class: "fragment-form" },
 ) do |form| %>
   <%= form.hidden_field(:key) %>
   <%= form.hidden_field(:locale) %>
@@ -10,4 +11,8 @@
   <%= form.text_area(:value) %>
 
   <%= form.button %>
+
+  <%= form.button(type: :button, "data-action": "cancel") do %>
+    <%= translate("helpers.submit.translation.cancel") %>
+  <% end %>
 <% end %>
