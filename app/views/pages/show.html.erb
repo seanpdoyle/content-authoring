@@ -6,10 +6,7 @@
     </summary>
 
     <%= form_with(model: [:admin, page]) do |form| %>
-      <%= form.label(:hero_text) %>
-      <%= form.text_field(:hero_text) %>
-
-      <%= form.submit %>
+      <%= render(form, attribute: :hero_text) %>
     <% end %>
   </details>
 </h1>
@@ -22,10 +19,7 @@
     </summary>
 
     <%= form_with(model: [:admin, page]) do |form| %>
-      <%= form.label(:headline_text) %>
-      <%= form.text_field(:headline_text) %>
-
-      <%= form.submit %>
+      <%= render(form, attribute: :headline_text) %>
     <% end %>
   </details>
 </h1>
@@ -38,10 +32,7 @@
     </summary>
 
     <%= form_with(model: [:admin, page]) do |form| %>
-      <%= form.label(:body_text) %>
-      <%= form.text_field(:body_text) %>
-
-      <%= form.submit %>
+      <%= render(form, attribute: :body_text) %>
     <% end %>
   </details>
 </div>
