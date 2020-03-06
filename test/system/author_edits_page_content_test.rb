@@ -37,7 +37,7 @@ class AuthorEditsPageContentTest < ApplicationSystemTestCase
   end
 
   def edit_content(attribute, value)
-    click_on translate("pages.show.edit")
+    click_on translate("pages.edit_button.button_html", attribute: "")
     fill_in_rich_text_area translate(attribute, scope: "helpers.label.page"), with: value
     click_on translate("helpers.submit.page.update")
   end

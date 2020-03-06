@@ -15,7 +15,7 @@ class AuthorCancelsPageContentEditTest < ApplicationSystemTestCase
 
     visit url_for(page.slug)
     within("h1", text: page.hero_text) do
-      click_on translate("pages.show.edit")
+      click_on translate("pages.edit_button.button_html", attribute: "")
       fill_in_rich_text_area translate(:hero_text, scope: "helpers.label.page"), with: new_hero_text
       click_on translate("helpers.submit.page.cancel")
     end

@@ -50,5 +50,5 @@ en:
         destroy: "Log out"
 
   pages:
-    show:
-      edit: "Edit"
+    edit_button:
+      button_html: "Edit %{attribute}"

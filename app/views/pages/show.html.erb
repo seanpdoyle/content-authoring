@@ -2,36 +2,27 @@
   <section class="page__hero">
     <%= page.hero_text %>
 
-    <%= form_with(
-      url: edit_admin_fragment_page_path(:hero_text, page),
-      method: :get,
-      html: { "data-controller": "fragment-form" },
-    ) do |form| %>
-      <%= form.submit(translate(".edit")) %>
-    <% end %>
+    <%= render(
+      partial: "pages/edit_button",
+      locals: { attribute: :hero_text, page: page },
+    ) %>
   </section>
 
   <section class="page__headline">
     <%= page.headline_text %>
 
-    <%= form_with(
-      url: edit_admin_fragment_page_path(:headline_text, page),
-      method: :get,
-      html: { "data-controller": "fragment-form" },
-    ) do |form| %>
-      <%= form.submit(translate(".edit")) %>
-    <% end %>
+    <%= render(
+      partial: "pages/edit_button",
+      locals: { attribute: :headline_text, page: page },
+    ) %>
   </section>
 
   <section class="page__body">
     <%= page.body_text %>
 
-    <%= form_with(
-      url: edit_admin_fragment_page_path(:body_text, page),
-      method: :get,
-      html: { "data-controller": "fragment-form" },
-    ) do |form| %>
-      <%= form.submit(translate(".edit")) %>
-    <% end %>
+    <%= render(
+      partial: "pages/edit_button",
+      locals: { attribute: :body_text, page: page },
+    ) %>
   </section>
 </article>
