@@ -35,83 +35,33 @@
   </header>
 
   <ul class="grid">
-    <li class="grid__card grid__card--featured page-card--featured">
-      <img
-        class="image--fit"
-        alt="Three screenshots of the SplitFit mobile application"
-        src="https://images.prismic.io/thoughtbot-website/7065315e-27c5-4d41-a6a8-7eafda032bd6_featured_case-study-card__splitfit.jpg"
-      >
+    <% pages.each_with_index do |page, index| %>
+      <li class="grid__card <%= "grid__card--featured page-card--featured" if index.zero? %>">
+        <img
+          class="image--fit"
+          alt="Three screenshots of the SplitFit mobile application"
+          src="https://images.prismic.io/thoughtbot-website/7065315e-27c5-4d41-a6a8-7eafda032bd6_featured_case-study-card__splitfit.jpg"
+        >
 
-      <div class="page-card__text">
-        <p class="page-card__featured-label type-heading--eyebrow">
-          Featured Case Study
-        </p>
+        <div class="page-card__text">
+          <p class="page-card__featured-label type-heading--eyebrow">
+            Featured Case Study
+          </p>
 
-        <h3 class="type-heading type-heading--3">
-          Splitfit
-        </h3>
+          <h3 class="type-heading type-heading--3">
+            <%= page.name %>
+          </h3>
 
-        <p class="type-body type-body--2">
-          From idea to 1,000 monthly paying users in just 6 months
-        </p>
+          <p class="type-body type-body--2">
+            <%= page.headline %>
+          </p>
 
-        <%= link_to page_path("1"), class: "call-to-action" do %>
-          Read the case study
-        <% end %>
-      </div>
-    </li>
-
-    <li class="grid__card page-card">
-      <img
-        class="image--fit"
-        alt="Screenshot of the DigitalOcean website with the text, worry-free database hosting"
-        src="https://images.prismic.io/thoughtbot-website/a8e41755-7103-4315-a84e-bda580b2b4a6_case-study-card__digital-ocean.jpg"
-      >
-
-      <div class="page-card__text">
-        <p class="page-card__featured-label type-heading--eyebrow">
-          Featured Case Study
-        </p>
-
-        <h3 class="type-heading type-heading--3">
-          DigitalOcean
-        </h3>
-
-        <p class="type-body type-body--2">
-          Integrating a content management system to help marketing move faster
-        </p>
-
-        <%= link_to page_path("1"), class: "call-to-action" do %>
-          Read the case study
-        <% end %>
-      </div>
-    </li>
-
-    <li class="grid__card page-card">
-      <img
-        class="image--fit"
-        alt="Screenshot of the Joydrive website with the text, buy new cars online & save with exclusive Joydrive discounts"
-        src="https://images.prismic.io/thoughtbot-website/6951ae23-f806-4e11-b77f-f443a7766e65_case-study-card__joydrive.jpg"
-      >
-
-      <div class="page-card__text">
-        <p class="page-card__featured-label type-heading--eyebrow">
-          Featured Case Study
-        </p>
-
-        <h3 class="type-heading type-heading--3">
-          Joydrive
-        </h3>
-
-        <p class="type-body type-body--2">
-          Online auto seller goes from concept to Superbowl Sunday launch
-        </p>
-
-        <%= link_to page_path("1"), class: "call-to-action" do %>
-          Read the case study
-        <% end %>
-      </div>
-    </li>
+          <%= link_to page_path(page), class: "call-to-action" do %>
+            Read the case study
+          <% end %>
+        </div>
+      </li>
+    <% end %>
   </ul>
 </section>
 
