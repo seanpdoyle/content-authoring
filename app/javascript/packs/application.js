@@ -30,7 +30,7 @@ document.addEventListener("ajax:complete", (event) => {
 })
 
 document.addEventListener("click", (event) => {
-  if (event.target.matches(`[data-fragment-form-cancel-html] button[type="button"]`)) {
+  if (event.target.matches(`[data-fragment-form-cancel-html] button[data-action="cancel"]`)) {
     const form = event.target.closest(`[data-fragment-form-cancel-html]`)
 
     form.outerHTML = form.getAttribute("data-fragment-form-cancel-html")

@@ -3,7 +3,7 @@
     partial: form,
     locals: { attribute: attribute },
   ) %>
-  <%= form.button(type: :button) do %>
+  <%= form.button(type: :button, "data-action": "cancel") do %>
     <%= translate("helpers.submit.page.cancel") %>
   <% end %>
 <% end %>

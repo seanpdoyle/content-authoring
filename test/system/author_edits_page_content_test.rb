@@ -5,9 +5,9 @@ class AuthorEditsPageContentTest < ApplicationSystemTestCase
 
   test "author edits page content" do
     attributes = {
-      hero_text: "The Hero Text",
-      headline_text: "The Headline",
-      body_text: "The Body",
+      hero_text: "<h1>The Hero Text</h1>",
+      headline_text: "<h1>The Headline</h1>",
+      body_text: "<p>The Body</p>",
       slug: "the-page",
     }
     page = Page.create!(attributes)
@@ -38,7 +38,7 @@ class AuthorEditsPageContentTest < ApplicationSystemTestCase
 
   def edit_content(attribute, value)
     click_on translate("pages.show.edit")
-    fill_in translate(attribute, scope: "helpers.label.page"), with: value
+    fill_in_rich_text_area translate(attribute, scope: "helpers.label.page"), with: value
     click_on translate("helpers.submit.page.update")
   end
 end

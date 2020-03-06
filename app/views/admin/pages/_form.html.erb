@@ -1,4 +1,5 @@
-<%= form.label(attribute) %>
-<%= form.text_field(attribute) %>
+<%= form.label(attribute) do |builder| %>
+  <%= form.rich_text_area(attribute, aria_label: builder.translation) %>
+<% end %>
 
 <%= form.submit %>

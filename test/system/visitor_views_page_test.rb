@@ -3,9 +3,9 @@ require "application_system_test_case"
 class VisitorViewsPageTest < ApplicationSystemTestCase
   test "visitor views page" do
     attributes = {
-      hero_text: "The Hero Text",
-      headline_text: "The Headline",
-      body_text: "The contents of the page",
+      hero_text: "<h1>The Hero Text</h1>",
+      headline_text: "<h1>The Headline</h1>",
+      body_text: "<div>The contents of the page</div>",
       slug: "the-page",
     }
     page = Page.create!(attributes)

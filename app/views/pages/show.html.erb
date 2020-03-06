@@ -1,35 +1,29 @@
-<h1>
-  <%= page.hero_text %>
+<%= page.hero_text %>
 
-  <%= form_with(
-    url: edit_admin_fragment_page_path(:hero_text, page),
-    method: :get,
-    html: { "data-controller": "fragment-form" },
-  ) do |form| %>
-    <%= form.submit(translate(".edit")) %>
-  <% end %>
-</h1>
+<%= form_with(
+  url: edit_admin_fragment_page_path(:hero_text, page),
+  method: :get,
+  html: { "data-controller": "fragment-form" },
+) do |form| %>
+  <%= form.submit(translate(".edit")) %>
+<% end %>
 
-<h1>
-  <%= page.headline_text %>
+<%= page.headline_text %>
 
-  <%= form_with(
-    url: edit_admin_fragment_page_path(:headline_text, page),
-    method: :get,
-    html: { "data-controller": "fragment-form" },
-  ) do |form| %>
-    <%= form.submit(translate(".edit")) %>
-  <% end %>
-</h1>
+<%= form_with(
+  url: edit_admin_fragment_page_path(:headline_text, page),
+  method: :get,
+  html: { "data-controller": "fragment-form" },
+) do |form| %>
+  <%= form.submit(translate(".edit")) %>
+<% end %>
 
-<div>
-  <%= page.body_text %>
+<%= page.body_text %>
 
-  <%= form_with(
-    url: edit_admin_fragment_page_path(:body_text, page),
-    method: :get,
-    html: { "data-controller": "fragment-form" },
-  ) do |form| %>
-    <%= form.submit(translate(".edit")) %>
-  <% end %>
-</div>
+<%= form_with(
+  url: edit_admin_fragment_page_path(:body_text, page),
+  method: :get,
+  html: { "data-controller": "fragment-form" },
+) do |form| %>
+  <%= form.submit(translate(".edit")) %>
+<% end %>
