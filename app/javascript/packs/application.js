@@ -19,12 +19,20 @@ require("channels")
 require("trix")
 require("@rails/actiontext")
 
-document.addEventListener("ajax:success", (event) => {
-  const form = event.target
+document.addEventListener("ajax:complete", (event) => {
+  if (event.target.matches(`[data-controller*="fragment-form"]`)) {
+    const [ response ] = event.detail
 
-  if (form.matches(`[data-controller*="fragment-form"]`)) {
-    const [ document ] = event.detail
+    event.target.insertAdjacentHTML("afterend", response.responseText)
+    event.target.nextSibling.setAttribute("data-fragment-form-cancel-html", event.target.outerHTML)
+    event.target.remove()
+  }
+})
 
-    form.outerHTML = document.body.innerHTML
+document.addEventListener("click", (event) => {
+  if (event.target.matches(`[data-fragment-form-cancel-html] button[type="button"]`)) {
+    const form = event.target.closest(`[data-fragment-form-cancel-html]`)
+
+    form.outerHTML = form.getAttribute("data-fragment-form-cancel-html")
   }
 })

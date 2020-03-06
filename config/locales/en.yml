@@ -43,10 +43,12 @@ en:
 
     submit:
       page:
+        cancel: "Cancel"
         update: "Save"
       session:
         create: "Log in as Editor"
         destroy: "Log out"
+
   pages:
     show:
       edit: "Edit"
