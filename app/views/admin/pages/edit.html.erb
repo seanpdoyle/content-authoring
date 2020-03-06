@@ -1,0 +1,6 @@
+<%= form_with(model: [:admin, page]) do |form| %>
+  <%= render(
+    partial: form,
+    locals: { attribute: params.fetch(:fragment_id) },
+  ) %>
+<% end %>

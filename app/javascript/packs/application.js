@@ -18,3 +18,13 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
+
+document.addEventListener("ajax:success", (event) => {
+  const form = event.target
+
+  if (form.matches(`[data-controller*="fragment-form"]`)) {
+    const [ document ] = event.detail
+
+    form.outerHTML = document.body.innerHTML
+  }
+})

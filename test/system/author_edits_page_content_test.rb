@@ -36,12 +36,8 @@ class AuthorEditsPageContentTest < ApplicationSystemTestCase
     translate("helpers.submit.session.create")
   end
 
-  def expand(label)
-    find("summary", text: label).click
-  end
-
   def edit_content(attribute, value)
-    expand translate("pages.show.edit")
+    click_on translate("pages.show.edit")
     fill_in translate(attribute, scope: "helpers.label.page"), with: value
     click_on translate("helpers.submit.page.update")
   end
