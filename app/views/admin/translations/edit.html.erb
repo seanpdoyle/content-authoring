@@ -7,8 +7,14 @@
   <%= form.hidden_field(:key) %>
   <%= form.hidden_field(:locale) %>
 
-  <%= form.label(:value) %>
-  <%= form.text_area(:value) %>
+  <% if translation.rich_text? %>
+    <%= form.label(:value) do |builder| %>
+      <%= form.rich_text_area(:value, "aria-label": builder.translation, autofocus: true) %>
+    <% end %>
+  <% else %>
+    <%= form.label(:value, class: "hide-visually") %>
+    <%= form.text_area(:value, autofocus: true) %>
+  <% end %>
 
   <%= form.button %>
 

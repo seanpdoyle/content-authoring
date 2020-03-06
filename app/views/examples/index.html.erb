@@ -7,6 +7,24 @@
   ) %>
 </h1>
 
+<div data-i18n-key="examples.index.hero_html">
+  <%= translate(".hero_html") %>
+
+  <%= render(
+    partial: "translations/edit_button",
+    locals: { key: "examples.index.hero_html" },
+  ) %>
+</div>
+
+<div data-i18n-key="examples.index.example.html">
+  <%= translate(".example.html") %>
+
+  <%= render(
+    partial: "translations/edit_button",
+    locals: { key: "examples.index.example.html" },
+  ) %>
+</div>
+
 <div data-i18n-key="examples.index.body">
   <%= translate(".body") %>
 

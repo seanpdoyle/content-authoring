@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_194835) do
+ActiveRecord::Schema.define(version: 2020_03_06_205409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_03_06_194835) do
   create_table "translations", force: :cascade do |t|
     t.string "locale", null: false
     t.string "key", null: false
-    t.text "value", null: false
+    t.text "value"
     t.text "interpolations"
     t.boolean "is_proc", default: false
     t.index ["locale", "key"], name: "index_translations_on_locale_and_key", unique: true
