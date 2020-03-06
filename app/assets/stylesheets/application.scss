@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+.page {
+
+}
+
+.page__hero {
+  width: 1024px;
+  height: 300px;
+  margin: 5rem auto 5rem auto;
+}
+
+.page__headline {
+
+}
+
+.page__body {
+
+}
+
+.fragment-form {
+  width: 100%;
+  position: relative;
+}
+
+.fragment-form {
+  trix-editor {
+    border: none;
+    bottom: 0;
+    display: block;
+    left: 0;
+    min-height: inherit;
+    padding: 0;
+    right: 0;
+    top: 0;
+  }
+
+  trix-toolbar {
+    display: block;
+    margin-top: -2rem;
+    position: absolute;
+  }
+}

@@ -22,17 +22,17 @@ require("@rails/actiontext")
 document.addEventListener("ajax:complete", (event) => {
   if (event.target.matches(`[data-controller*="fragment-form"]`)) {
     const [ response ] = event.detail
+    const container = event.target.parentElement
 
-    event.target.insertAdjacentHTML("afterend", response.responseText)
-    event.target.nextSibling.setAttribute("data-fragment-form-cancel-html", event.target.outerHTML)
-    event.target.remove()
+    container.setAttribute("data-fragment-form-cancel-html", container.innerHTML)
+    container.innerHTML = response.responseText
   }
 })
 
 document.addEventListener("click", (event) => {
   if (event.target.matches(`[data-fragment-form-cancel-html] button[data-action="cancel"]`)) {
-    const form = event.target.closest(`[data-fragment-form-cancel-html]`)
+    const container = event.target.closest(`[data-fragment-form-cancel-html]`)
 
-    form.outerHTML = form.getAttribute("data-fragment-form-cancel-html")
+    container.innerHTML = container.getAttribute("data-fragment-form-cancel-html")
   }
 })

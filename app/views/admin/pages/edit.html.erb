@@ -1,8 +1,13 @@
-<%= form_with(model: [:admin, page]) do |form| %>
-  <%= render(
-    partial: form,
-    locals: { attribute: attribute },
-  ) %>
+<%= form_with(
+  model: [:admin, page],
+  html: { class: "fragment-form" },
+) do |form| %>
+  <%= form.label(attribute) do |builder| %>
+    <%= form.rich_text_area(attribute, "aria-label": builder.translation, autofocus: true) %>
+  <% end %>
+
+  <%= form.submit %>
+
   <%= form.button(type: :button, "data-action": "cancel") do %>
     <%= translate("helpers.submit.page.cancel") %>
   <% end %>
