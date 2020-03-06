@@ -3,7 +3,7 @@ module Admin
     def edit
       page = Page.find(params[:id])
 
-      render locals: { page: page }, layout: !fragment?
+      render locals: { page: page, attribute: params[:fragment_id] }, variant: :fragment
     end
 
     def update
