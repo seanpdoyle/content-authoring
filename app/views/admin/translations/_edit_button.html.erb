@@ -5,10 +5,13 @@
 ) do |form| %>
   <%= form.button do %>
     <%= translate(".button") %>
-    <%= tag.span(translate(
-      key,
-      scope: [:translations, :keys],
-      default: key.split(".").map(&:humanize).join(": "),
-    )) %>
+    <%= tag.span(
+      translate(
+        key,
+        scope: [:translations, :keys],
+        default: key.split(".").map(&:humanize).join(": "),
+      ),
+      class: "hide-visually",
+    ) %>
   <% end %>
 <% end %>

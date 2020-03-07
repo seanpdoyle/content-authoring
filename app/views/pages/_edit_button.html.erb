@@ -5,6 +5,9 @@
 ) do |form| %>
   <%= form.button do %>
     <%= translate(".button") %>
-    <%= tag.span(page.class.human_attribute_name(attribute)) %>
+    <%= tag.span(
+      page.class.human_attribute_name(attribute),
+      class: "hide-visually",
+    ) %>
   <% end %>
 <% end %>
