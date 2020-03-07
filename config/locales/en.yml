@@ -43,6 +43,10 @@ en:
       example:
         html: "<div>Example of <em>HTML</em></div>"
       hero_html: "<div>The Hero, with <b>HTML</b></div>"
+      list_items:
+        - "first item"
+        - "middle item"
+        - "last item"
       title: "The Original Title"
 
   helpers:

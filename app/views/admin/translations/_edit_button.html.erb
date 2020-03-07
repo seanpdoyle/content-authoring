@@ -3,6 +3,10 @@
   method: :get,
   html: { "data-controller": "fragment-form" },
 ) do |form| %>
+  <% if local_assigns.key?(:index) %>
+    <%= form.hidden_field(:index, value: index) %>
+  <% end %>
+
   <%= form.button do %>
     <%= translate(".button") %>
     <%= tag.span(

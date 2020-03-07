@@ -7,13 +7,30 @@
   <%= form.hidden_field(:key) %>
   <%= form.hidden_field(:locale) %>
 
-  <% if translation.rich_text? %>
-    <%= form.label(:value) do |builder| %>
-      <%= form.rich_text_area(:value, "aria-label": builder.translation, autofocus: true) %>
+  <% if translation.value.respond_to?(:each_with_index) %>
+    <% translation.value.each_with_index do |value, index| %>
+      <%= form.fields_for(:value, index) do |fields| %>
+        <% if params[:index].to_i == index %>
+          <%= form.label(:value) do |builder| %>
+            <span class="hide-visually">
+              <%= builder.translation %>
+            </span>
+            <%= fields.text_area(index, value: value, autofocus: true) %>
+          <% end %>
+        <% else %>
+          <%= fields.hidden_field(index, value: value) %>
+        <% end %>
+      <% end %>
     <% end %>
   <% else %>
-    <%= form.label(:value, class: "hide-visually") %>
-    <%= form.text_area(:value, autofocus: true) %>
+    <% if translation.rich_text? %>
+      <%= form.label(:value) do |builder| %>
+        <%= form.rich_text_area(:value, "aria-label": builder.translation, autofocus: true) %>
+      <% end %>
+    <% else %>
+      <%= form.label(:value, class: "hide-visually") %>
+      <%= form.text_area(:value, autofocus: true) %>
+    <% end %>
   <% end %>
 
   <%= form.button %>

@@ -9,6 +9,17 @@ class Translation < I18n::Backend::ActiveRecord::Translation
     key.ends_with?(".html") || key.ends_with?("_html")
   end
 
+  def value=(value)
+    if value.is_a?(Hash)
+      self.value = value.reduce([]) do |array, (index, value)|
+        array[index.to_i] = value
+        array
+      end
+    else
+      super
+    end
+  end
+
   def value
     if rich_text?
       RichText.new(super)

@@ -11,12 +11,24 @@ module Admin
     end
 
     def create
-      translation = Translation.find_or_initialize_by(translation_params.slice(
+      record = Translation.find_or_initialize_by(translation_params.slice(
         :locale,
         :key,
       ))
+      translation = translate(record.key, locale: record.locale)
 
-      translation.update!(translation_params)
+      if translation.is_a?(Array)
+        attributes = params.require(:translation).permit(
+          :key,
+          :locale,
+          value: {},
+        )
+        attributes[:value] = attributes[:value].values
+
+        record.update!(attributes)
+      else
+        record.update!(translation_params)
+      end
 
       redirect_back fallback_location: "/"
     end
