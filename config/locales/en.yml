@@ -74,8 +74,6 @@ en:
         featured: "Featured Case Study"
         headline: "Startups, scale-ups, and beyond"
       services:
-        headline: "Our services"
-        introduction: "Your expert partners for building mission-driven products"
         content_html: >-2
           <div>
           Benefit from over 16 years of experience designing and building successful
@@ -85,6 +83,16 @@ en:
           working with a small, dedicated team of project-focused product experts
           built to fit the needs of your project.
           </div>
+        headline: "Our services"
+        introduction: "Your expert partners for building mission-driven products"
+        value:
+          headline: "While working on your project:"
+          items:
+            - "Understand your business and user goals"
+            - "Validate your product assumptions"
+            - "Collaborate openly with you"
+            - "Work in weekly iterations of focused work"
+            - "Adapt our team based on your project needs"
 
   translations:
     editable:

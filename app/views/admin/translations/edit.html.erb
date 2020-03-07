@@ -1,3 +1,7 @@
+<%
+  input = params.fetch(:input, "text_field")
+%>
+
 <%= form_with(
   model: [:admin, translation],
   url: admin_translations_path,
@@ -6,18 +10,45 @@
   <%= form.hidden_field(:key) %>
   <%= form.hidden_field(:locale) %>
 
-  <% case params.fetch(:input, "text_field") when "text_field" %>
-    <%= form.label(attribute, class: "u-visually-hidden") %>
-    <%= form.text_field(attribute, class: "editable__field") %>
-  <% when "text_area" %>
-    <%= form.label(attribute, class: "u-visually-hidden") %>
-    <%= form.text_area(attribute, rows: 1, class: "editable__field") %>
-  <% when "rich_text_area" %>
-    <%= form.label(attribute, class: "editable__label") do %>
-      <%= form.rich_text_area(
-        attribute,
-        "aria-label": translate(attribute, scope: "helpers.label.translation"),
-      ) %>
+  <% if params.key?(:index) %>
+    <% translation.value.each_with_index do |value, index| %>
+      <%= form.fields_for(:value, index) do |fields| %>
+        <% if params[:index].to_i == index %>
+          <%= fields.label(
+            index,
+            translate(attribute, scope: "helpers.label.translation"),
+            class: "u-visually-hidden",
+          ) %>
+            <% case input when "text_field" %>
+              <%= fields.text_field(index, value: value, class: "editable__field") %>
+            <% when "text_area" %>
+              <%= fields.text_area(index, value: value, rows: 1, class: "editable__field") %>
+            <% when "rich_text_area" %>
+              <%= fields.rich_text_area(
+                index,
+                value: value,
+                "aria-label": translate(attribute, scope: "helpers.label.translation"),
+              ) %>
+          <% end %>
+        <% else %>
+          <%= fields.hidden_field(index, value: value) %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <% case input when "text_field" %>
+      <%= form.label(attribute, class: "u-visually-hidden") %>
+      <%= form.text_field(attribute, class: "editable__field") %>
+    <% when "text_area" %>
+      <%= form.label(attribute, class: "u-visually-hidden") %>
+      <%= form.text_area(attribute, rows: 1, class: "editable__field") %>
+    <% when "rich_text_area" %>
+      <%= form.label(attribute, class: "editable__label") do %>
+        <%= form.rich_text_area(
+          attribute,
+          "aria-label": translate(attribute, scope: "helpers.label.translation"),
+        ) %>
+      <% end %>
     <% end %>
   <% end %>
 
