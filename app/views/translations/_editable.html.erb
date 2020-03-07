@@ -3,7 +3,13 @@
   class="editable"
   data-controller="editable"
   data-editable-attribute="value"
-  data-editable-key="<%= key %>"
+  data-editable-key="<%= (
+    if local_assigns.key?(:index)
+      "#{key}[#{index}]"
+    else
+      key
+    end
+  ) %>"
   data-editable-loaded-class="editable--loaded"
 >
   <summary class="editable__summary">
@@ -30,6 +36,10 @@
     method: :get,
     html: { "data-controller": "attribute-form" },
   ) do |form|%>
+    <% if local_assigns.key?(:index) %>
+      <%= form.hidden_field(:index, value: index) %>
+    <% end %>
+
     <%= form.hidden_field(:input, value: local_assigns[:input]) %>
   <% end %>
 </details>
@@ -46,6 +56,10 @@
   ],
 ) do %>
   <% translate(key).tap do |translation| %>
+    <% if local_assigns.key?(:index) %>
+      <% translation = translation.fetch(index) %>
+    <% end %>
+
     <%= yield(translation).presence || translation %>
   <% end %>
 <% end %>

@@ -117,29 +117,22 @@
 
     <div class="split-block--single">
       <h3 class="type-heading type-heading--eyebrow">
-        While working on your project:
+        <%= render(partial: "translations/editable", locals: {
+          key: "pages.index.services.value.headline",
+          input: :text_field,
+        }) %>
       </h3>
 
       <ul class="list--unstyled">
-        <li>
-          Understand your business and user goals
-        </li>
-
-        <li>
-          Validate your product assumptions
-        </li>
-
-        <li>
-          Collaborate openly with you
-        </li>
-
-        <li>
-          Work in weekly iterations of focused work
-        </li>
-
-        <li>
-          Adapt our team based on your project needs
-        </li>
+        <% translate("pages.index.services.value.items").each_with_index do |translation, index| %>
+          <li>
+            <%= render(partial: "translations/editable", locals: {
+              key: "pages.index.services.value.items",
+              index: index,
+              input: :text_area,
+            }) %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
