@@ -7,7 +7,7 @@ module Admin
         locale: I18n.locale,
       )
 
-      render locals: { translation: translation }, variant: :fragment
+      render locals: { translation: translation }
     end
 
     def create
@@ -30,7 +30,7 @@ module Admin
         record.update!(translation_params)
       end
 
-      redirect_back fallback_location: "/"
+      redirect_to examples_url
     end
 
     private

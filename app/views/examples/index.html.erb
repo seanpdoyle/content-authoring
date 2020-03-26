@@ -1,46 +1,70 @@
 <h1 data-i18n-key="examples.index.title">
-  <%= translate(".title") %>
+  <% if content_for?("examples.index.title") %>
+    <%= yield("examples.index.title") %>
+  <% else %>
+    <%= translate(".title") %>
 
-  <%= render(
-    partial: "admin/translations/edit_button",
-    locals: { key: "examples.index.title" },
-  ) %>
+    <%= render(
+      partial: "admin/translations/edit_button",
+      locals: { key: "examples.index.title" },
+    ) %>
+  <% end %>
 </h1>
 
 <div data-i18n-key="examples.index.hero_html">
-  <%= translate(".hero_html") %>
+  <% if content_for?("examples.index.hero_html") %>
+    <%= yield("examples.index.hero_html") %>
+  <% else %>
+    <div class="trix-content">
+      <%= translate(".hero_html") %>
+    </div>
 
-  <%= render(
-    partial: "admin/translations/edit_button",
-    locals: { key: "examples.index.hero_html" },
-  ) %>
+    <%= render(
+      partial: "admin/translations/edit_button",
+      locals: { key: "examples.index.hero_html" },
+    ) %>
+  <% end %>
 </div>
 
 <div data-i18n-key="examples.index.example.html">
-  <%= translate(".example.html") %>
+  <% if content_for?("examples.index.example.html") %>
+    <%= yield("examples.index.example.html") %>
+  <% else %>
+    <div class="trix-content">
+      <%= translate(".example.html") %>
+    </div>
 
-  <%= render(
-    partial: "admin/translations/edit_button",
-    locals: { key: "examples.index.example.html" },
-  ) %>
+    <%= render(
+      partial: "admin/translations/edit_button",
+      locals: { key: "examples.index.example.html" },
+    ) %>
+  <% end %>
 </div>
 
 <div data-i18n-key="examples.index.body">
-  <%= translate(".body") %>
+  <% if content_for?("examples.index.body") %>
+    <%= yield("examples.index.body") %>
+  <% else %>
+    <%= translate(".body") %>
 
-  <%= render(
-    partial: "admin/translations/edit_button",
-    locals: { key: "examples.index.body" },
-  ) %>
+    <%= render(
+      partial: "admin/translations/edit_button",
+      locals: { key: "examples.index.body" },
+    ) %>
+  <% end %>
 </div>
 
 <% translate(".list_items").each_with_index do |translation, index| %>
   <div data-i18n-key="examples.index.list_items">
-    <%= translation %>
+    <% if content_for?("examples.index.list_items[#{index}]") %>
+      <%= yield("examples.index.list_items[#{index}]") %>
+    <% else %>
+      <%= translation %>
 
-    <%= render(
-      partial: "admin/translations/edit_button",
-      locals: { key: "examples.index.list_items", index: index },
-    ) %>
+      <%= render(
+        partial: "admin/translations/edit_button",
+        locals: { key: "examples.index.list_items", index: index },
+      ) %>
+    <% end %>
   </div>
 <% end %>

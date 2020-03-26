@@ -1,21 +1,23 @@
-<%= form_with(
-  url: edit_admin_fragment_translation_path("value", key),
-  method: :get,
-  html: { "data-controller": "fragment-form" },
-) do |form| %>
-  <% if local_assigns.key?(:index) %>
-    <%= form.hidden_field(:index, value: index) %>
-  <% end %>
+<%= link_to(
+  edit_admin_fragment_translation_path(
+    "value",
+    key, (
+      if local_assigns.key?(:index)
+        { index: index }
+      else
+        {}
+      end
+    )
+  ),
+) do %>
 
-  <%= form.button do %>
-    <%= translate(".button") %>
-    <%= tag.span(
-      translate(
-        key,
-        scope: [:translations, :keys],
-        default: key.split(".").map(&:humanize).join(": "),
-      ),
-      class: "hide-visually",
-    ) %>
-  <% end %>
+  <%= translate(".button") %>
+  <%= tag.span(
+    translate(
+      key,
+      scope: [:translations, :keys],
+      default: key.split(".").map(&:humanize).join(": "),
+    ),
+    class: "hide-visually",
+  ) %>
 <% end %>
