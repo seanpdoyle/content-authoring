@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <% if Current.admin_id.present? %>
+          <%= form_with(scope: :session, url: session_path, method: :delete) do |form| %>
+            <%= form.submit translate("helpers.submit.session.destroy") %>
+          <% end %>
+        <% else %>
+          <%= form_with(scope: :session, url: sessions_path) do |form| %>
+            <%= form.submit translate("helpers.submit.session.create") %>
+          <% end %>
+        <% end %>
+      </nav>
+    </header>
+
     <%= yield %>
   </body>
 </html>

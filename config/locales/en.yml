@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  helpers:
+    submit:
+      session:
+        create: "Log in as Editor"
+        destroy: "Log out"
