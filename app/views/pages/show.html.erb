@@ -1,11 +1,47 @@
 <h1>
   <%= page.hero_text %>
+  <details>
+    <summary>
+      <%= translate(".edit") %>
+    </summary>
+
+    <%= form_with(model: [:admin, page]) do |form| %>
+      <%= form.label(:hero_text) %>
+      <%= form.text_field(:hero_text) %>
+
+      <%= form.submit %>
+    <% end %>
+  </details>
 </h1>
 
 <h1>
   <%= page.headline_text %>
+  <details>
+    <summary>
+      <%= translate(".edit") %>
+    </summary>
+
+    <%= form_with(model: [:admin, page]) do |form| %>
+      <%= form.label(:headline_text) %>
+      <%= form.text_field(:headline_text) %>
+
+      <%= form.submit %>
+    <% end %>
+  </details>
 </h1>
 
 <div>
   <%= page.body_text %>
+  <details>
+    <summary>
+      <%= translate(".edit") %>
+    </summary>
+
+    <%= form_with(model: [:admin, page]) do |form| %>
+      <%= form.label(:body_text) %>
+      <%= form.text_field(:body_text) %>
+
+      <%= form.submit %>
+    <% end %>
+  </details>
 </div>

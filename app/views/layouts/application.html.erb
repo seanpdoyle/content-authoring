@@ -11,6 +11,8 @@
 
   <body>
     <header>
+      <%= tag.div(flash.alert) %>
+
       <nav>
         <% if Current.admin_id.present? %>
           <%= form_with(scope: :session, url: session_path, method: :delete) do |form| %>
