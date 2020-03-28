@@ -1,5 +1,14 @@
 module Admin
   class PagesController < ApplicationController
+    def edit
+      page = Page.find(params[:id])
+
+      render locals: {
+        attribute: params.fetch(:attribute_id),
+        page: page,
+      }
+    end
+
     def update
       page = Page.find(params[:id])
 

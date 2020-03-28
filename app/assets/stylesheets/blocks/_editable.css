@@ -7,7 +7,7 @@
   display: inherit;
 }
 
-.editable[open] ~ .editable__content {
+.editable[open].editable--loaded ~ .editable__content {
   display: none;
 }
 
@@ -21,6 +21,12 @@
   padding: 0;
   text-transform: inherit;
   width: 100%;
+}
+
+.editable__label {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .editable__submit {
@@ -61,4 +67,25 @@
 
 .editable[open] .editable__summary-prompt--open {
   display: inline;
+}
+
+.editable[open] trix-editor {
+  border: none;
+  bottom: 0;
+  display: block;
+  left: 0;
+  min-height: inherit;
+  padding: 0;
+  right: 0;
+  top: 0;
+}
+
+.editable[open] trix-toolbar {
+  display: block;
+  margin-top: -2rem;
+  position: absolute;
+}
+
+.editable[open] .trix-button-group {
+  background-color: white;
 }
