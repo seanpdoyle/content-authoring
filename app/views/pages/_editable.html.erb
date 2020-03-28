@@ -31,5 +31,5 @@
 <% end %>
 
 <span class="editable__content">
-  <%= model[attribute] %>
+  <%= model.public_send(attribute) %>
 </span>

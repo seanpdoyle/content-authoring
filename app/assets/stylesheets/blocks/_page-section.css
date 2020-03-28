@@ -11,14 +11,10 @@
 }
 
 @media (min-width: 64rem) {
-  .page-section--introduction {
-    padding-left: 4.5rem;
-    padding-right: 4.5rem;
-  }
-
-  .page-section--narrow {
+  .page-section--long-form .trix-content > :not(.attachment-gallery--2):not(.attachment-gallery--4) {
     --page-section-narrow-padding: calc(0.5 * (var(--page-section-width) - 40rem));
 
+    max-width: none;
     padding-left: var(--page-section-narrow-padding);
     padding-right: var(--page-section-narrow-padding);
   }

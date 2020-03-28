@@ -37,8 +37,11 @@ en:
   helpers:
     label:
       page:
-        name: "Name"
+        content: "Content"
         headline: "Headline"
+        information: "Information"
+        introduction: "Introduction"
+        name: "Name"
 
     submit:
       page:

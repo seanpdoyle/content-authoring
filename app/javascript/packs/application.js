@@ -25,7 +25,8 @@ import autosize from "@github/textarea-autosize"
 const focusIn = (detailsElement) => {
   const field = detailsElement.querySelector(`
     input[type="text"],
-    textarea
+    textarea,
+    trix-editor
   `)
 
   if (field) {
