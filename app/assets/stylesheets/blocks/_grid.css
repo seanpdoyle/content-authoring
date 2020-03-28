@@ -1,0 +1,29 @@
+.grid {
+  display: grid;
+  grid-gap: 2rem 2rem;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0;
+}
+
+.grid__card {
+  list-style: none;
+}
+
+.grid__card--featured {
+  background-color: var(--color-featured-background);
+  color: var(--color-featured);
+}
+
+@media (min-width: 64rem) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid__card {
+    grid-column: span 1;
+  }
+
+  .grid__card--featured {
+    grid-column: span 2;
+  }
+}

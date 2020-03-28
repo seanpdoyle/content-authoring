@@ -1,0 +1,22 @@
+.hero {
+}
+
+.hero__block {
+  align-self: center;
+}
+
+.hero__block--image {
+  min-width: 48%;
+}
+
+.hero__container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 64rem) {
+  .hero__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

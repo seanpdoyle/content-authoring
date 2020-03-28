@@ -1,0 +1,28 @@
+.type-heading {
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-heavy);
+  line-height: var(--line-height-heading);
+  margin-bottom: 1.5rem;
+}
+
+.type-heading--1 {
+  font-size: var(--font-size-heading-1);
+  max-width: 18em;
+}
+
+.type-heading--2 {
+  font-size: var(--font-size-heading-2);
+  max-width: 22em;
+}
+
+.type-heading--3 {
+  font-size: var(--font-size-heading-3);
+  max-width: 22em;
+}
+
+.type-heading--eyebrow {
+  color: var(--color-text-subdued);
+  font-size: var(--font-size-body-2);
+  font-weight: var(--font-weight-normal);
+  text-transform: uppercase;
+}

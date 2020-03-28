@@ -1,0 +1,17 @@
+.type-body {
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-body);
+  max-width: 30em;
+}
+
+.type-body--medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.type-body--2 {
+  font-size: var(--font-size-body-2);
+}
+
+.type-body--3 {
+  font-size: var(--font-size-body-3);
+}

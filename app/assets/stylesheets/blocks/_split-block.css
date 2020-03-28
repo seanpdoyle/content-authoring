@@ -1,0 +1,33 @@
+.split-block {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 64rem) {
+  .split-block {
+    --split-block-columns: 2;
+
+    display: grid;
+    grid-template-columns: repeat(var(--split-block-columns), 1fr);
+  }
+
+  .split-block--3 {
+    --split-block-columns: 3;
+  }
+
+  .split-block--4 {
+    --split-block-columns: 4;
+  }
+
+  .split-block--single {
+    grid-column: span 1;
+  }
+
+  .split-block--double {
+    grid-column: span 2;
+  }
+
+  .split-block--triple {
+    grid-column: span 3;
+  }
+}

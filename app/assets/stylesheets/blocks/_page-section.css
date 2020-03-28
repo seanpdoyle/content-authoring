@@ -1,0 +1,25 @@
+.page-section {
+  --page-section-width: 75rem;
+
+  margin: auto;
+  max-width: var(--page-section-width);
+  padding-bottom: 4.5rem;
+}
+
+.page-section:only-of-type {
+  padding-top: 4.5rem;
+}
+
+@media (min-width: 64rem) {
+  .page-section--introduction {
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+  }
+
+  .page-section--narrow {
+    --page-section-narrow-padding: calc(0.5 * (var(--page-section-width) - 40rem));
+
+    padding-left: var(--page-section-narrow-padding);
+    padding-right: var(--page-section-narrow-padding);
+  }
+}

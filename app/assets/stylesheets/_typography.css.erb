@@ -1,0 +1,80 @@
+:root {
+  --line-height-body: 1.5;
+  --line-height-heading: 1.12;
+
+  --font-size-body-1: 0.8333333333em;
+  --font-size-body-2: 1em;
+  --font-size-body-3: 1.2em;
+
+  --font-size-heading-1: 2.48832em;
+  --font-size-heading-2: 2.0736em;
+  --font-size-heading-3: 1.728em;
+  --font-size-heading-4: 1.44em;
+
+  --font-size: 1rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-heavy: 600;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Calibre";
+  font-style: normal;
+  font-weight: 400;
+  src: url(<%= font_url("CalibreWeb-Regular.woff2") %>) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Calibre";
+  font-style: italic;
+  font-weight: 400;
+  src: url(<%= font_url("CalibreWeb-RegularItalic.woff2") %>) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Calibre";
+  font-style: normal;
+  font-weight: 500;
+  src: url(<%= font_url("CalibreWeb-Medium.woff2") %>) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Calibre";
+  font-style: italic;
+  font-weight: 500;
+  src: url(<%= font_url("CalibreWeb-MediumItalic.woff2") %>) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Calibre";
+  font-style: normal;
+  font-weight: 600;
+  src: url(<%= font_url("CalibreWeb-Semibold.woff2") %>) format("woff2");
+}
+
+html {
+  color: var(--color-text);
+  font-family: "Calibre", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 100%;
+  line-height: var(--line-height-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-heading);
+  font-size: var(--font-size);
+  margin: 0;
+}
+
+a {
+  color: var(--color-brand);
+}

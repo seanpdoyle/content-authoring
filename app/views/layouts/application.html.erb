@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ContentAuthoring</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,7 +10,25 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="frame">
+    <header class="frame__header">
+      <nav>
+        <%= link_to root_path do %>
+          Content Authoring
+        <% end %>
+      </nav>
+    </header>
+
+    <main class="frame__main">
+      <%= yield %>
+    </main>
+
+    <footer class="frame__footer">
+      <section class="page-section">
+        <h2 class="type-heading type-heading--2">
+          Hire us to help you build a great application
+        </h2>
+      </section>
+    </footer>
   </body>
 </html>
