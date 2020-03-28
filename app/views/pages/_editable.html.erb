@@ -3,6 +3,7 @@
   class="editable"
   data-controller="editable"
   data-editable-attribute="<%= attribute %>"
+  data-editable-loaded-class="editable--loaded"
 >
   <summary class="editable__summary">
     <span class="editable__summary-prompt">
@@ -19,11 +20,12 @@
     </span>
   </summary>
 
-  <%= form_with(model: [:admin, model]) do |form| %>
-    <%= form.label(attribute, class: "u-visually-hidden") %>
-    <%= yield form %>
-
-    <%= form.submit class: "editable__submit"%>
+  <%= form_with(
+    url: edit_admin_attribute_page_path(attribute, model),
+    method: :get,
+    html: { "data-controller": "attribute-form" },
+  ) do |form|%>
+    <%= form.hidden_field(:input, value: local_assigns[:input]) %>
   <% end %>
 </details>
 <% end %>
