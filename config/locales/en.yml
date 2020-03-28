@@ -30,9 +30,23 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  admin:
+    application:
+      not_authorized: "Can't edit without logging in"
+
   helpers:
+    label:
+      page:
+        name: "Name"
+        headline: "Headline"
+
     submit:
+      page:
+        update: "Save"
       session:
         create: "Log in as Editor"
         destroy: "Log out"
+
+  pages:
+    index:
+      edit: "Edit %{attribute}"
