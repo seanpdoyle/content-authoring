@@ -1,6 +1,10 @@
 <header class="page-section type--narrow">
   <h1 class="type-heading type-heading--1 u-text-align--center">
-    From idea to 1,000 monthly paying users in just 6 months
+    <%= render partial: "pages/editable", locals: {
+      model: page,
+      attribute: :headline,
+      input: :text_area,
+    } %>
   </h1>
 </header>
 
@@ -20,101 +24,34 @@
       u-margin-right--2
     "
   >
-    <div>
-      <strong>
-        Company Type
-      </strong>
-    </div>
-
-    <div>
-      Consumer fitness app
-    </div>
-
-    <div>
-      <strong>
-        Challenge
-      </strong>
-    </div>
-
-    <div>
-      Validate business idea, Go to market quickly
-    </div>
-
-    <div>
-      <strong>
-        Solution
-      </strong>
-    </div>
-
-    <div>
-      Prototype &amp; user testing, Branding and visual direction, React Native platform for iOS and Android apps
-    </div>
-
-    <div>
-      <strong>
-        Outcome
-      </strong>
-    </div>
-
-    <div>
-      Idea to launch in 8 weeks, 1000 monthly paying users in 6 months
-    </div>
+    <%= render partial: "pages/editable", locals: {
+      model: page,
+      attribute: :information,
+      input: :rich_text_area,
+    } %>
   </div>
 
-  <div class="split-block--triple">
-    <div
-      class="
-        split-block--triple
-        type-body
-        type-body--3
-        type-body--medium
-        type-body--narrow
-      "
-    >
-      SplitFit was founded by three childhood
-      friends who saw an opportunity to revolutionize personal training. Having been
-      in the fitness industry for years they realized that between noon and 5pm gyms
-      typically have unbooked trainers on staff who are being paid to wait until
-      their next session. By building an easy way for people to find and book these
-      trainers people would be able to access training at a lower price point while
-      still generating additional revenue for the gym.
-    </div>
+  <div
+    class="
+      split-block--triple
+      type-body
+      type-body--3
+      type-body--medium
+      type-body--narrow
+    "
+  >
+    <%= render partial: "pages/editable", locals: {
+      model: page,
+      attribute: :introduction,
+      input: :rich_text_area,
+    } %>
   </div>
 </section>
 
-<section class="page-section type--narrow">
-  <h2>
-    Creating SplitFit
-  </h2>
-
-  <p>
-    SplitFit came to thoughtbot with only an idea. We started day one with a
-    design sprint to validate their idea. By the end of week one we conducted our
-    first round of user testing and interviews.
-  </p>
-
-  <h2>
-    Problem Statement
-  </h2>
-
-  <p>
-    Personal training is too expensive, isn’t accessible to non-members and
-    gyms have an excess of unused inventory.
-  </p>
-
-  <h2>
-    Prototype &amp; User Testing
-  </h2>
-
-  <p>
-    We created a prototype that was built in Xcode. This let users run the
-    prototype on their iPhone. They were able to set preferences, build profiles
-    and use the keyboard as they would normally with any other app. We caught
-    issues much earlier and more accurately than we would have with a traditional
-    prototyping approach (creating a prototype with hotspots and images).
-  </p>
-
-  <p>
-    The outcome of the first week was incredibly successful. The prototype and business idea was well received. We confidently moved forward knowing that we conducted an initial round of user testing. We started to build out and refine wireframes for each of the designed user flows.
-  </p>
+<section class="page-section page-section--long-form trix-content--long-form">
+  <%= render partial: "pages/editable", locals: {
+    model: page,
+    attribute: :content,
+    input: :rich_text_area,
+  } %>
 </section>

@@ -21,7 +21,10 @@ module Admin
 
     def page_params
       params.require(:page).permit(
+        :content,
         :headline,
+        :information,
+        :introduction,
         :name,
       )
     end

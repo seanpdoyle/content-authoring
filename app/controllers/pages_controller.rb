@@ -4,4 +4,10 @@ class PagesController < ApplicationController
 
     render locals: { pages: pages }
   end
+
+  def show
+    page = Page.find(params[:id])
+
+    render locals: { page: page }
+  end
 end
