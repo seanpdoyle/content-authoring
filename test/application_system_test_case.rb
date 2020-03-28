@@ -19,6 +19,15 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     end
   end
 
+  def edit_translation(key, content)
+    within %([data-editable-key="#{key}"]) do
+      expand translate("translations.editable.edit_html", attribute: "")
+
+      fill_in label(:translation, :value), with: content
+      click_on submit(:translation, :update)
+    end
+  end
+
   def expand(label)
     find("summary", text: label, normalize_ws: true).click
   end

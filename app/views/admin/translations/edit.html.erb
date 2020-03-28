@@ -1,0 +1,25 @@
+<%= form_with(
+  model: [:admin, translation],
+  url: admin_translations_path,
+  method: :post,
+) do |form| %>
+  <%= form.hidden_field(:key) %>
+  <%= form.hidden_field(:locale) %>
+
+  <% case params.fetch(:input, "text_field") when "text_field" %>
+    <%= form.label(attribute, class: "u-visually-hidden") %>
+    <%= form.text_field(attribute, class: "editable__field") %>
+  <% when "text_area" %>
+    <%= form.label(attribute, class: "u-visually-hidden") %>
+    <%= form.text_area(attribute, rows: 1, class: "editable__field") %>
+  <% when "rich_text_area" %>
+    <%= form.label(attribute, class: "editable__label") do %>
+      <%= form.rich_text_area(
+        attribute,
+        "aria-label": translate(attribute, scope: "helpers.label.translation"),
+      ) %>
+    <% end %>
+  <% end %>
+
+  <%= form.submit class: "editable__submit"%>
+<% end %>

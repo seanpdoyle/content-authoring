@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :attributes, only: [], constraints: ->(request) { request.xhr? } do
       resources :pages, only: [:edit]
+      resources :translations, only: [:edit], constraints: { id: /[^\/]+/ }
     end
 
     resources :pages, only: [:update]
+    resources :translations, only: [:create]
   end
 
   resources :sessions, only: [:create]

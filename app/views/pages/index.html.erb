@@ -2,15 +2,18 @@
   <section class="hero hero__container">
     <div class="hero__block">
       <h1 class="type-heading type-heading--1">
-        Let’s make your product and team a success
+        <%= render partial: "translations/editable", locals: {
+          key: "pages.index.hero.headline",
+          input: :text_area,
+        } %>
       </h1>
 
-      <p class="type-body type-body--3">
-        thoughtbot is your expert design and development partner. We bring
-        digital products from validation to success and teach you how because we
-        care. It’s time to move beyond simply building features and start
-        designing the right product with the right strategy.
-      </p>
+      <div class="type-body type-body--3">
+        <%= render partial: "translations/editable", locals: {
+          key: "pages.index.hero.content",
+          input: :text_area,
+        } %>
+      </div>
     </div>
 
     <div class="hero__block hero__block--image">
@@ -26,12 +29,18 @@
 <section class="page-section">
   <header>
     <h2 class="type-heading type-heading--eyebrow">
-      Startups, scale-ups, and beyond
+      <%= render partial: "translations/editable", locals: {
+        key: "pages.index.list.headline",
+        input: :text_field,
+      } %>
     </h2>
 
-    <p class="type-heading type-heading--2">
-      Positive outcomes for hundreds of web and mobile projects like yours
-    </p>
+    <div class="type-heading type-heading--2">
+      <%= render partial: "translations/editable", locals: {
+        key: "pages.index.list.content",
+        input: :text_area,
+      } %>
+    </div>
   </header>
 
   <ul class="grid">
@@ -44,9 +53,12 @@
         >
 
         <div class="page-card__text">
-          <p class="page-card__featured-label type-heading--eyebrow">
-            Featured Case Study
-          </p>
+          <div class="page-card__featured-label type-heading--eyebrow">
+            <%= render partial: "translations/editable", locals: {
+              key: "pages.index.list.featured",
+              input: :text_field,
+            } %>
+          </div>
 
           <h3 class="type-heading type-heading--3">
             <%= render(partial: "pages/editable", locals: {
@@ -64,8 +76,13 @@
             }) %>
           </div>
 
-          <%= link_to page_path(page), class: "call-to-action" do %>
-            Read the case study
+          <%= render layout: "translations/editable", locals: {
+            key: "pages.index.links.show",
+            input: :text_field,
+          } do |translation| %>
+            <%= link_to page_path(page), class: "call-to-action" do %>
+              <%= translation %>
+            <% end %>
           <% end %>
         </div>
       </li>
