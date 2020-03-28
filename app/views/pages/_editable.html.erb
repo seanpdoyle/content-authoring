@@ -1,0 +1,33 @@
+<% if Current.admin_id.present? %>
+<details
+  class="editable"
+  data-controller="editable"
+  data-editable-attribute="<%= attribute %>"
+>
+  <summary class="editable__summary">
+    <span class="editable__summary-prompt">
+      <%= translate(
+        "pages.editable.edit_html",
+        attribute: tag.span(
+          model.class.human_attribute_name(attribute),
+          class: "u-visually-hidden",
+        ),
+      ) %>
+    </span>
+    <span class="editable__summary-prompt--open">
+      <%= translate("pages.editable.cancel") %>
+    </span>
+  </summary>
+
+  <%= form_with(model: [:admin, model]) do |form| %>
+    <%= form.label(attribute, class: "u-visually-hidden") %>
+    <%= yield form %>
+
+    <%= form.submit class: "editable__submit"%>
+  <% end %>
+</details>
+<% end %>
+
+<span class="editable__content">
+  <%= model[attribute] %>
+</span>

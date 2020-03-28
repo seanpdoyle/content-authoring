@@ -49,38 +49,22 @@
           </p>
 
           <h3 class="type-heading type-heading--3">
-            <%= page.name %>
-
-            <details>
-              <summary>
-                <%= translate("pages.index.edit", attribute: :name) %>
-              </summary>
-
-              <%= form_with(model: [:admin, page]) do |form| %>
-                <%= form.label(:name) %>
-                <%= form.text_field(:name) %>
-
-                <%= form.submit %>
-              <% end %>
-            </details>
+            <%= render(layout: "pages/editable", locals: {
+              model: page,
+              attribute: :name,
+            }) do |form| %>
+              <%= form.text_field(:name, class: "editable__field") %>
+            <% end %>
           </h3>
 
-          <p class="type-body type-body--2">
-            <%= page.headline %>
-
-            <details>
-              <summary>
-                <%= translate("pages.index.edit", attribute: :headline) %>
-              </summary>
-
-              <%= form_with(model: [:admin, page]) do |form| %>
-                <%= form.label(:headline) %>
-                <%= form.text_field(:headline) %>
-
-                <%= form.submit %>
-              <% end %>
-            </details>
-          </p>
+          <div class="type-body type-body--2">
+            <%= render(layout: "pages/editable", locals: {
+              model: page,
+              attribute: :headline,
+            }) do |form| %>
+              <%= form.text_area(:headline, class: "editable__field", rows: 1) %>
+            <% end %>
+          </div>
 
           <%= link_to page_path(page), class: "call-to-action" do %>
             Read the case study

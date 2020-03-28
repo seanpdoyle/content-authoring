@@ -48,5 +48,6 @@ en:
         destroy: "Log out"
 
   pages:
-    index:
-      edit: "Edit %{attribute}"
+    editable:
+      cancel: "Cancel"
+      edit_html: "Edit %{attribute}"

@@ -15,3 +15,30 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import autosize from "@github/textarea-autosize"
+
+document.addEventListener("turbolinks:load", () => {
+  const editableElements = document.querySelectorAll('[data-controller*="editable"]')
+
+  for (const editableForm of editableElements) {
+    editableForm.addEventListener("toggle", (event) => {
+      const detailsElement = event.target
+
+      if (detailsElement.open) {
+        for (const textarea of detailsElement.querySelectorAll("textarea")) {
+          autosize(textarea)
+        }
+
+        const field = detailsElement.querySelector(`
+          input[type="text"],
+          textarea
+        `)
+
+        if (field) {
+          field.focus()
+        }
+      }
+    })
+  }
+})

@@ -1,0 +1,64 @@
+.editable {
+  cursor: pointer;
+  position: relative;
+}
+
+.editable__content {
+  display: inherit;
+}
+
+.editable[open] ~ .editable__content {
+  display: none;
+}
+
+.editable__field {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-transform: inherit;
+  width: 100%;
+}
+
+.editable__submit {
+  bottom: -1.5rem;
+  left: 0;
+  position: absolute;
+}
+
+.editable__summary {
+  --editable-summary-padding: 0.25rem;
+  --editable-summary-offset: calc(-1 * var(--editable-summary-padding));
+
+  background-color: gray;
+  color: white;
+  list-style: none;
+  font-size: var(--font-size);
+  margin-left: calc(-4rem + var(--editable-summary-offset));
+  margin-top: var(--editable-summary-offset);
+  padding: var(--editable-summary-padding);
+  position: absolute;
+}
+
+.editable__summary::-webkit-details-marker {
+  display: none;
+}
+
+.editable__summary-prompt {
+  display: inline;
+}
+
+.editable__summary-prompt--open {
+  display: none;
+}
+
+.editable[open] .editable__summary-prompt {
+  display: none;
+}
+
+.editable[open] .editable__summary-prompt--open {
+  display: inline;
+}

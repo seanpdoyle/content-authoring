@@ -25,13 +25,15 @@ class AuthorEditsPageContentTest < ApplicationSystemTestCase
   end
 
   def expand(label)
-    find("summary", text: label).click
+    find("summary", text: label, normalize_ws: true).click
   end
 
-  def edit_attribute(attribute, value)
-    expand translate("pages.index.edit", attribute: attribute)
-    fill_in translate(attribute, scope: "helpers.label.page"), with: value
-    click_on translate("helpers.submit.page.update")
+  def edit_attribute(attribute, content)
+    within %([data-editable-attribute="#{attribute}"]) do
+      expand translate("pages.editable.edit_html", attribute: "")
+      fill_in translate(attribute, scope: "helpers.label.page"), with: content
+      click_on translate("helpers.submit.page.update")
+    end
   end
 
   def login_button
