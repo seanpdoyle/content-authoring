@@ -35,8 +35,17 @@
 </details>
 <% end %>
 
-<span class="editable__content">
+<%= tag.span(
+  class: [
+    "editable__content",
+    (
+      if key.ends_with?("_html") || key.ends_with?(".html")
+        "trix-content"
+      end
+    )
+  ],
+) do %>
   <% translate(key).tap do |translation| %>
     <%= yield(translation).presence || translation %>
   <% end %>
-</span>
+<% end %>

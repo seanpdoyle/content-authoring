@@ -73,6 +73,18 @@ en:
         content: "Positive outcomes for hundreds of web and mobile projects like yours"
         featured: "Featured Case Study"
         headline: "Startups, scale-ups, and beyond"
+      services:
+        headline: "Our services"
+        introduction: "Your expert partners for building mission-driven products"
+        content_html: >-2
+          <div>
+          Benefit from over 16 years of experience designing and building successful
+          products. From a founder with an idea to product owners at large enterprises
+          and everything in between, the thread that ties them all together is
+          solving meaningful problems with a design-led approach. You’ll be
+          working with a small, dedicated team of project-focused product experts
+          built to fit the needs of your project.
+          </div>
 
   translations:
     editable:

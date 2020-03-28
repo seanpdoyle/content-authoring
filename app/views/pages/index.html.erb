@@ -93,23 +93,27 @@
 <section class="page-section">
   <header>
     <h2 class="type-heading type-heading--eyebrow">
-      Our services
+      <%= render partial: "translations/editable", locals: {
+        key: "pages.index.services.headline",
+        input: :text_field,
+      } %>
     </h2>
 
-    <p class="type-heading type-heading--2">
-      Your expert partners for building mission-driven products
-    </p>
+    <div class="type-heading type-heading--2">
+      <%= render partial: "translations/editable", locals: {
+        key: "pages.index.services.introduction",
+        input: :text_area,
+      } %>
+    </div>
   </header>
 
   <div class="split-block split-block--3">
-    <p class="split-block--double">
-      Benefit from over 16 years of experience designing and building
-      successful products. From a founder with an idea to product owners at large
-      enterprises and everything in between, the thread that ties them all
-      together is solving meaningful problems with a design-led approach. You’ll
-      be working with a small, dedicated team of project-focused product experts
-      built to fit the needs of your project.
-    </p>
+    <div class="split-block--double">
+      <%= render partial: "translations/editable", locals: {
+        key: "pages.index.services.content_html",
+        input: :rich_text_area,
+      } %>
+    </div>
 
     <div class="split-block--single">
       <h3 class="type-heading type-heading--eyebrow">
