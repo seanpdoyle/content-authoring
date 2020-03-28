@@ -1,0 +1,42 @@
+<% if Current.admin_id.present? %>
+<details
+  class="editable"
+  data-controller="editable"
+  data-editable-attribute="value"
+  data-editable-key="<%= key %>"
+  data-editable-loaded-class="editable--loaded"
+>
+  <summary class="editable__summary">
+    <span class="editable__summary-prompt">
+      <%= translate(
+        "translations.editable.edit_html",
+        attribute: tag.span(
+          translate(
+            key,
+            scope: [:translations, :keys],
+            default: key,
+          ),
+          class: "u-visually-hidden",
+        ),
+      ) %>
+    </span>
+    <span class="editable__summary-prompt--open">
+      <%= translate("translations.editable.cancel") %>
+    </span>
+  </summary>
+
+  <%= form_with(
+    url: edit_admin_attribute_translation_path("value", key),
+    method: :get,
+    html: { "data-controller": "attribute-form" },
+  ) do |form|%>
+    <%= form.hidden_field(:input, value: local_assigns[:input]) %>
+  <% end %>
+</details>
+<% end %>
+
+<span class="editable__content">
+  <% translate(key).tap do |translation| %>
+    <%= yield(translation).presence || translation %>
+  <% end %>
+</span>

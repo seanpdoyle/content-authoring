@@ -42,6 +42,8 @@ en:
         information: "Information"
         introduction: "Introduction"
         name: "Name"
+      translation:
+        value: "Translated text"
 
     submit:
       page:
@@ -49,8 +51,30 @@ en:
       session:
         create: "Log in as Editor"
         destroy: "Log out"
+      translation:
+        create: "Save"
+        update: "Save"
 
   pages:
+    editable:
+      cancel: "Cancel"
+      edit_html: "Edit %{attribute}"
+    index:
+      hero:
+        content: >
+          thoughtbot is your expert design and development partner. We bring
+          digital products from validation to success and teach you how because we
+          care. It’s time to move beyond simply building features and start
+          designing the right product with the right strategy.
+        headline: "Let’s make your product and team a success"
+      links:
+        show: "Read the case study"
+      list:
+        content: "Positive outcomes for hundreds of web and mobile projects like yours"
+        featured: "Featured Case Study"
+        headline: "Startups, scale-ups, and beyond"
+
+  translations:
     editable:
       cancel: "Cancel"
       edit_html: "Edit %{attribute}"
