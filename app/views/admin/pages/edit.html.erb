@@ -1,4 +1,7 @@
-<%= form_with(model: [:admin, page]) do |form| %>
+<%= form_with(
+  model: [:admin, page],
+  html: { "data-controller": "preserve-scroll" },
+) do |form| %>
   <% case params.fetch(:input, "text_field") when "text_field" %>
     <%= form.label(attribute, class: "u-visually-hidden") %>
     <%= form.text_field(attribute, class: "editable__field") %>

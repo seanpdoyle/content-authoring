@@ -34,6 +34,15 @@ const focusIn = (detailsElement) => {
   }
 }
 
+document.addEventListener("turbolinks:before-render", (event) => {
+  const scrollTop = document.body.getAttribute("data-scroll-top")
+  const newBody = event.data.newBody
+
+  if (scrollTop) {
+    newBody.setAttribute("data-scroll-top", scrollTop)
+  }
+})
+
 document.addEventListener("turbolinks:load", () => {
   const editableElements = document.querySelectorAll('[data-controller*="editable"]')
 
@@ -50,10 +59,24 @@ document.addEventListener("turbolinks:load", () => {
       }
     })
   }
+
+  if (document.body.hasAttribute("data-scroll-top")) {
+    const scrollTop = document.body.getAttribute("data-scroll-top")
+
+    document.scrollingElement.scrollTop = scrollTop
+
+    document.body.removeAttribute("data-scroll-top")
+  }
 })
 
 document.addEventListener("ajax:success", (event) => {
   const form = event.target
+
+  if (form.matches(`[data-controller*="preserve-scroll"]`)) {
+    const scrollTop = document.scrollingElement.scrollTop
+
+    document.body.setAttribute("data-scroll-top", scrollTop)
+  }
 
   if (form.matches(`[data-controller*="attribute-form"]`)) {
     const [ response ] = event.detail
