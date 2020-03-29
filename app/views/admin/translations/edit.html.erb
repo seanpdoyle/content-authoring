@@ -6,6 +6,7 @@
   model: [:admin, translation],
   url: admin_translations_path,
   method: :post,
+  html: { "data-controller": "preserve-scroll" },
 ) do |form| %>
   <%= form.hidden_field(:key) %>
   <%= form.hidden_field(:locale) %>
