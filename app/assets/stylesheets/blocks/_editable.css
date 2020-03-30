@@ -11,6 +11,14 @@
   display: none;
 }
 
+.editable__actions {
+  bottom: -1.5rem;
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  position: absolute;
+}
+
 .editable__field {
   border: none;
   font-family: inherit;
@@ -27,12 +35,6 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-}
-
-.editable__submit {
-  bottom: -1.5rem;
-  left: 0;
-  position: absolute;
 }
 
 .editable__summary {

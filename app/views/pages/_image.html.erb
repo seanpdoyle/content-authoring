@@ -1,0 +1,9 @@
+<% if image.attached? %>
+  <%= image_tag(
+    image,
+    class: "image--fit",
+    # alt: "Three screenshots of the SplitFit mobile application"
+  ) %>
+<% else %>
+  Not attached
+<% end %>

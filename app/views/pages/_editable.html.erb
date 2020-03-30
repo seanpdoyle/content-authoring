@@ -30,6 +30,8 @@
 </details>
 <% end %>
 
+<% value = model.public_send(attribute) %>
+
 <span class="editable__content">
-  <%= model.public_send(attribute) %>
+  <%= yield(value).presence || value %>
 </span>

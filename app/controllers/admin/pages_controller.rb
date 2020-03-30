@@ -23,6 +23,7 @@ module Admin
       params.require(:page).permit(
         :content,
         :headline,
+        :hero_image,
         :information,
         :introduction,
         :name,

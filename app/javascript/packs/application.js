@@ -96,3 +96,33 @@ document.addEventListener("ajax:success", (event) => {
     detailsElement.classList.add(loadedClass)
   }
 })
+
+document.addEventListener("input", (event) => {
+  const input = event.target
+  const form = input.form
+
+  if (input.matches('[data-controller*="file-upload-preview"] input[type="file"]')) {
+    const previewImage = form.querySelector("img")
+
+    if (!previewImage.hasAttribute("data-file-upload-preview-reset-src")) {
+      previewImage.setAttribute("data-file-upload-preview-reset-src", previewImage.src)
+    }
+
+    for (const file of input.files) {
+      previewImage.src = URL.createObjectURL(file)
+    }
+  }
+})
+
+document.addEventListener("reset", (event) => {
+  const form = event.target
+
+  if (form.matches('[data-controller*="file-upload-preview"]')) {
+    const previewImage = form.querySelector("img")
+    const resetSrc = previewImage.getAttribute("data-file-upload-preview-reset-src")
+
+    if (resetSrc) {
+      previewImage.src = resetSrc
+    }
+  }
+})

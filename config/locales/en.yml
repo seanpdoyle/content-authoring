@@ -39,6 +39,7 @@ en:
       page:
         content: "Content"
         headline: "Headline"
+        hero_image: "Hero Image"
         information: "Information"
         introduction: "Introduction"
         name: "Name"
@@ -47,6 +48,7 @@ en:
 
     submit:
       page:
+        reset: "Clear"
         update: "Save"
       session:
         create: "Log in as Editor"

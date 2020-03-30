@@ -46,11 +46,15 @@
   <ul class="grid">
     <% pages.each_with_index do |page, index| %>
       <li class="grid__card <%= "grid__card--featured page-card--featured" if index.zero? %>">
-        <img
-          class="image--fit"
-          alt="Three screenshots of the SplitFit mobile application"
-          src="https://images.prismic.io/thoughtbot-website/7065315e-27c5-4d41-a6a8-7eafda032bd6_featured_case-study-card__splitfit.jpg"
-        >
+        <div class="page-card__image">
+          <%= render layout: "pages/editable", locals: {
+            attribute: :hero_image,
+            input: :file_field,
+            model: page,
+          } do |hero_image| %>
+            <%= render(partial: "pages/image", locals: { image: hero_image }) %>
+          <% end %>
+        </div>
 
         <div class="page-card__text">
           <div class="page-card__featured-label type-heading--eyebrow">
