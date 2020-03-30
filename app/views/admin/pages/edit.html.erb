@@ -1,6 +1,6 @@
 <%= form_with(
   model: [:admin, page],
-  html: { "data-controller": "preserve-scroll" },
+  html: { "data-controller": "preserve-scroll file-upload-preview" },
 ) do |form| %>
   <% case params.fetch(:input, "text_field") when "text_field" %>
     <%= form.label(attribute, class: "u-visually-hidden") %>
@@ -15,7 +15,22 @@
         "aria-label": translate(attribute, scope: "helpers.label.page"),
       ) %>
     <% end %>
+  <% when "file_field" %>
+    <%= form.label(attribute) do %>
+      <%= render(partial: "pages/image", locals: { image: page.public_send(attribute) }) %>
+
+      <%= form.file_field(
+        attribute,
+        "aria-label": translate(attribute, scope: "helpers.label.page"),
+        accept: "image/*",
+        class: "u-visually-hidden",
+        direct_upload: true
+      ) %>
+    <% end %>
   <% end %>
 
-  <%= form.submit class: "editable__submit"%>
+  <div class="editable__actions">
+    <%= form.submit %>
+    <%= form.button translate("helpers.submit.page.reset"), type: :reset %>
+  </div>
 <% end %>

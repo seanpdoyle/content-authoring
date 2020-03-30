@@ -6,9 +6,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   driven_by :selenium, using: :chrome, screen_size: [1768, 1400]
 
   def edit_attribute(attribute, content, rich_text: false)
-    within %([data-editable-attribute="#{attribute}"]) do
-      expand translate("pages.editable.edit_html", attribute: "")
-
+    expand_attribute_form(attribute) do
       if rich_text
         fill_in_rich_text_area label(:page, attribute), with: content
       else
@@ -30,6 +28,14 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
       end
 
       click_on submit(:translation, :update)
+    end
+  end
+
+  def expand_attribute_form(attribute)
+    within %([data-editable-attribute="#{attribute}"]) do
+      expand translate("pages.editable.edit_html", attribute: "")
+
+      yield
     end
   end
 
