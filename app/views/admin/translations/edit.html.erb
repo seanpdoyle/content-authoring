@@ -1,5 +1,6 @@
 <%
-  input = params.fetch(:input, "text_field")
+  input           = params.fetch(:input, "text_field")
+  interpolations  = params.fetch(:interpolations, {})
 %>
 
 <%= form_with(
@@ -52,6 +53,18 @@
       <% end %>
     <% end %>
   <% end %>
+
+  <dl>
+    <% interpolations.each do |interpolation_key, interpolation_value| %>
+      <dt>
+        <%= translate("admin.translations.edit.interpolation", key: interpolation_key) %>
+      </dt>
+
+      <dd>
+        <%= interpolation_value %>
+      </dd>
+    <% end %>
+  </dl>
 
   <div class="editable__actions">
     <%= form.submit %>

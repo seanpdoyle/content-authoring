@@ -34,6 +34,16 @@ en:
     application:
       not_authorized: "Can't edit without logging in"
 
+    translations:
+      edit:
+        interpolation: "%{%{key}}"
+
+  layouts:
+    application:
+      footer:
+        headline: "Hire us to help you build a great application"
+        copyright: "© %{year} thoughtbot, inc."
+
   helpers:
     label:
       page:
