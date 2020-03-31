@@ -38,8 +38,19 @@
     <footer class="frame__footer">
       <section class="page-section">
         <h2 class="type-heading type-heading--2">
-          Hire us to help you build a great application
+          <%= render partial: "translations/editable", locals: {
+            key:"layouts.application.footer.headline",
+            input: :text_area,
+          } %>
         </h2>
+
+        <small>
+          <%= render partial: "translations/editable", locals: {
+            key:"layouts.application.footer.copyright",
+            interpolations: { year: Date.current.year },
+            input: :text_area,
+          } %>
+        </small>
       </section>
     </footer>
   </body>

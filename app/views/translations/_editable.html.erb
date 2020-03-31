@@ -1,3 +1,7 @@
+<%
+  interpolations = local_assigns.fetch(:interpolations, {})
+%>
+
 <% if Current.admin_id.present? %>
 <details
   class="editable"
@@ -41,6 +45,12 @@
     <% end %>
 
     <%= form.hidden_field(:input, value: local_assigns[:input]) %>
+
+    <% interpolations.each do |interpolation_key, interpolation_value| %>
+      <%= form.fields(:interpolations) do |fields| %>
+        <%= fields.hidden_field(interpolation_key, value: interpolation_value) %>
+      <% end %>
+    <% end %>
   <% end %>
 </details>
 <% end %>
@@ -55,7 +65,7 @@
     )
   ],
 ) do %>
-  <% translate(key).tap do |translation| %>
+  <% translate(key, interpolations).tap do |translation| %>
     <% if local_assigns.key?(:index) %>
       <% translation = translation.fetch(index) %>
     <% end %>
