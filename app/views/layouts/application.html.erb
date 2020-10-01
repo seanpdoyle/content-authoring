@@ -10,7 +10,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-gradient-to-r from-purple-300 to-indigo-300 leading-relaxed tracking-wide flex flex-col">
+    <%= render "header" %>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <%= render "footer" %>
   </body>
 </html>
