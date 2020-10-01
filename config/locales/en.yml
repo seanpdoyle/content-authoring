@@ -30,7 +30,75 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  application:
+    footer:
+      links:
+        general: "Links"
+        legal: "Legal"
+        social: "Social"
+        company: "Company"
+
   marketings:
     index:
       hero:
-        title: "Content Authoring"
+        title: "Main Hero Message"
+        subtitle:
+          html: >
+            Sub-hero message, not too long and not too short. Make it just right!
+        call_to_action: "Sign Up"
+        learn_more: "View Additional Action"
+
+      customers:
+        title: "Our Customers / Featured in"
+
+      value_proposition:
+        title: "Title"
+        propositions:
+          primary:
+            title: "Lorem ipsum dolor sit amet"
+            content:
+              html: >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                at ipsum eu nunc commodo posuere et sit amet ligula.<br /><br />
+
+                Images from: <a href="https://undraw.co/">undraw.co</a>
+          secondary:
+            title: "Lorem ipsum dolor sit amet"
+            content:
+              html: >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                at ipsum eu nunc commodo posuere et sit amet ligula.<br /><br />
+
+                Images from: <a href="https://undraw.co/">undraw.co</a>
+
+      features:
+        title: "Title"
+        collection:
+          - title: "Getting Started"
+            subtitle: "Lorem ipsum dolor sit amet."
+            content: >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              at ipsum eu nunc commodo posuere et sit amet ligula.
+            call_to_action: "Action"
+
+          - title: "Getting Started"
+            subtitle: "Lorem ipsum dolor sit amet."
+            content: >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              at ipsum eu nunc commodo posuere et sit amet ligula.
+            call_to_action: "Action"
+
+          - title: "Getting Started"
+            subtitle: "Lorem ipsum dolor sit amet."
+            content: >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              at ipsum eu nunc commodo posuere et sit amet ligula.
+            call_to_action: "Action"
+
+      pricing:
+        title: "Pricing"
+
+      call_to_action:
+        title: "Call to Action"
+        content: "Main Hero Message"
+        button: "Action!"
