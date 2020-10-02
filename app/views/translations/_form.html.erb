@@ -1,19 +1,20 @@
 <%= form_with model: translation, class: "relative", data: {
   controller: "trix-form",
-  action: "
-    trix-file-accept->trix-form#reject
+  action: token_list(
+    { "trix-file-accept->trix-form#reject" => translation.plain? },
+    { "trix-file-accept->trix-form#showToolbar" => translation.html? }, "
     trix-focus@document->trix-form#dismissDismissUnlessFocused
     click@document->trix-form#dismissUnlessContained
     focusout->trix-form#dismissUnlessContained
     reset->trix-form#dismiss
-  "
+  ")
 } do |form| %>
   <%= form.hidden_field :locale %>
   <%= form.hidden_field :key %>
 
   <trix-toolbar id="<%= dom_id(translation, :toolbar) %>" hidden>
     <div class="trix-button-row trix-button-row--end">
-      <span class="trix-button-group">
+      <span class="trix-button-group" data-trix-form-target="toolbarAddition">
         <% tag.with_options class: "trix-button trix-button--icon", tabindex: -1 do |trix| %>
           <%= trix.button type: :submit, title: "Save" do %>
             <svg class="text-green-500" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -37,8 +38,8 @@
   </trix-toolbar>
 
   <%= rich_text_area_tag "translation[value]", translation.value,
-    class: "outline-none focus:shadow-outline min-h-0 border-0 p-0",
+    class: class_names("outline-none focus:shadow-outline min-h-0 border-0 p-0", { "trix-content": translation.html? }),
     aria: { label: translation.key },
     data: { trix_form_target: "editor" },
-    toolbar: dom_id(translation, :toolbar) %>
+    toolbar: (dom_id(translation, :toolbar) if translation.plain?) %>
 <% end %>

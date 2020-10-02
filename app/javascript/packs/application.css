@@ -22,3 +22,7 @@ trix-toolbar .trix-button-row--end {
 trix-toolbar .trix-button-group--block-tools {
   @apply hidden;
 }
+
+.trix-content a {
+  @apply underline;
+}

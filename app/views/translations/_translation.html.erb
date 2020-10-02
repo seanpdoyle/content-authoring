@@ -1,1 +1,5 @@
-<%= translation %>
+<% if translation.html? %>
+  <span class="trix-content"><%= translation %></span>
+<% else %>
+  <%= translation %>
+<% end %>
