@@ -30,7 +30,32 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  application:
+    footer:
+      links:
+        general: "Links"
+        legal: "Legal"
+        social: "Social"
+        company: "Company"
+
   marketings:
     index:
       hero:
         title: "Main Hero Message to sell yourself!"
+        subtitle: "Sub-hero message, not too long and not too short. Make it just right!"
+
+      customers:
+        title: "Our Customers / Featured in"
+
+      value_proposition:
+        title: "Title"
+
+      features:
+        title: "Title"
+
+      pricing:
+        title: "Pricing"
+
+      call_to_action:
+        title: "Call to Action"
+        text: "Main Hero Message to sell yourself!"

@@ -10,4 +10,19 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def with_translations(translations, &block)
+    original = I18n.backend
+    *others, defaults = I18n.backend.backends
+    overrides = I18n::Backend::Simple.new.tap(&:eager_load!)
+
+    I18n.backend = I18n::Backend::Chain.new(
+      *others,
+      overrides
+    )
+    translations.each { |locale, data| overrides.store_translations(locale, data) }
+
+    block.call
+  ensure
+    I18n.backend = original
+  end
 end
