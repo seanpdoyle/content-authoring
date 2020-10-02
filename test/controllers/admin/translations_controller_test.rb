@@ -1,8 +1,9 @@
 require "test_helper"
 
-class TranslationsControllerTest < ActionDispatch::IntegrationTest
+class Admin::TranslationsControllerTest < ActionDispatch::IntegrationTest
   test "#create with a valid Translation persists it to the I18n backend" do
     with_translations en: { key: "value" } do
+      post sessions_path
       post translations_path, params: {
         translation: {
           locale: :en,
@@ -18,6 +19,7 @@ class TranslationsControllerTest < ActionDispatch::IntegrationTest
 
   test "#create with an valid Translation responds with an error" do
     with_translations en: {} do
+      post sessions_path
       post translations_path, params: {
         translation: {
           locale: :en,
@@ -28,5 +30,11 @@ class TranslationsControllerTest < ActionDispatch::IntegrationTest
 
       assert_response :unprocessable_entity
     end
+  end
+
+  test "#create without authenticating responds with a Not Found status" do
+    post translations_path
+
+    assert_response :forbidden
   end
 end
