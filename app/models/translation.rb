@@ -15,7 +15,7 @@ class Translation
   def value
     content = ActionText::Content.new(super)
 
-    content.to_plain_text
+    plain? ? content.to_plain_text : content.to_s
   end
 
   def new_record?
@@ -24,6 +24,14 @@ class Translation
 
   def save
     I18n.backend.store_translations(locale, { key => value })
+  end
+
+  def html?
+    key.to_s.end_with?("html")
+  end
+
+  def plain?
+    !html?
   end
 
   def to_key

@@ -42,7 +42,7 @@ en:
     index:
       hero:
         title: "Main Hero Message to sell yourself!"
-        subtitle: "Sub-hero message, not too long and not too short. Make it just right!"
+        subtitle_html: "Sub-hero message, not too long and not too short. Make it just right!"
 
       customers:
         title: "Our Customers / Featured in"
