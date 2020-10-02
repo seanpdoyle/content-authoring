@@ -32,11 +32,15 @@
 
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
         <li class="mr-3">
-          <a
-            class="inline-block py-2 px-4 text-black font-bold no-underline"
-            href="#"
-            >Active</a
-          >
+          <% if request.variant.admin? %>
+            <%= button_to session_path, class: "inline-block py-2 px-4 text-black font-bold no-underline", method: :delete do %>
+              Log out
+            <% end %>
+          <% else %>
+            <%= button_to sessions_path, class: "inline-block py-2 px-4 text-black font-bold no-underline", method: :post do %>
+              Edit
+            <% end %>
+          <% end %>
         </li>
         <li class="mr-3">
           <a

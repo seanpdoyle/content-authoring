@@ -8,6 +8,7 @@ class TranslationsTest < ApplicationSystemTestCase
     translation = translate(key)
 
     visit root_path
+    click_on "Edit"
     within("h1") { fill_in_rich_text_area with: "New Hero Title" }
     click_on "Save"
 
