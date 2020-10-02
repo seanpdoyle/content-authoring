@@ -1,3 +1,24 @@
+@import "trix/dist/trix.css";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+trix-toolbar {
+  @apply absolute left-0 right-0 transform -translate-y-full z-50;
+}
+
+trix-toolbar .trix-button {
+  @apply bg-white;
+}
+
+trix-toolbar .trix-button-group {
+  @apply mb-auto;
+}
+
+trix-toolbar .trix-button-row--end {
+  @apply justify-end;
+}
+
+trix-toolbar .trix-button-group--block-tools {
+  @apply hidden;
+}

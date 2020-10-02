@@ -1,5 +1,5 @@
 <% content_for :document_title do %>
-  <%= translate(".hero.title") %>
+  <%= strip_tags sanitize translate(".hero.title") %>
 <% end %>
 
 <div class="container mx-auto h-screen">
@@ -9,11 +9,11 @@
     >
       <%= translate(".hero.title") %>
     </h1>
-    <p
+    <div
       class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"
     >
-      Sub-hero message, not too long and not too short. Make it just right!
-    </p>
+      <%= translate(".hero.subtitle") %>
+    </div>
 
     <%= render "button", class: "my-2 md:my-6" do %>
       Sign Up
@@ -64,7 +64,7 @@
     <h2
       class="w-full my-2 text-xl font-black leading-tight text-center text-gray-800 lg:mt-8"
     >
-      Our Customers / Featured in
+      <%= translate(".customers.title") %>
     </h2>
     <div class="w-full mb-4">
       <div
@@ -131,7 +131,7 @@
     <h2
       class="w-full my-2 text-5xl font-black leading-tight text-center text-gray-800"
     >
-      Title
+      <%= translate(".value_proposition.title") %>
     </h2>
     <div class="w-full mb-4">
       <div
@@ -187,7 +187,7 @@
     <h2
       class="w-full my-2 text-5xl font-black leading-tight text-center text-gray-800"
     >
-      Title
+      <%= translate(".features.title") %>
     </h2>
     <div class="w-full mb-4">
       <div
@@ -286,7 +286,7 @@
     <h2
       class="w-full my-2 text-5xl font-black leading-tight text-center text-gray-800"
     >
-      Pricing
+      <%= translate(".pricing.title") %>
     </h2>
     <div class="w-full mb-4">
       <div
@@ -392,7 +392,7 @@
   <h2
     class="w-full my-2 text-5xl font-black leading-tight text-center text-white"
   >
-    Call to Action
+    <%= translate(".call_to_action.title") %>
   </h2>
   <div class="w-full mb-4">
     <div
@@ -401,7 +401,7 @@
   </div>
 
   <h3 class="my-4 text-3xl font-extrabold">
-    Main Hero Message to sell yourself!
+    <%= translate(".call_to_action.text") %>
   </h3>
 
   <%= render "button", class: "my-6" do %>
