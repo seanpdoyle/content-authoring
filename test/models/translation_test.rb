@@ -44,6 +44,28 @@ class TranslationTest < ActiveSupport::TestCase
     end
   end
 
+  test "#html? returns true when the key ends with html" do
+    assert_predicate Translation.new(key: "key_html"), :html?
+    assert_predicate Translation.new(key: "key.html"), :html?
+    assert_predicate Translation.new(key: "html"), :html?
+  end
+
+  test "#html? returns false when the key does not end with html" do
+    assert_not_predicate Translation.new(key: "key"), :html?
+    assert_not_predicate Translation.new(key: "html.key"), :html?
+  end
+
+  test "#plain? returns true when the key does no end with html" do
+    assert_predicate Translation.new(key: "key"), :plain?
+    assert_predicate Translation.new(key: "html.key"), :plain?
+  end
+
+  test "#plain? returns false when the key ends with html" do
+    assert_not_predicate Translation.new(key: "key_html"), :plain?
+    assert_not_predicate Translation.new(key: "key.html"), :plain?
+    assert_not_predicate Translation.new(key: "html"), :plain?
+  end
+
   test "#to_s returns the value for direct interpolation" do
     translation = Translation.new(value: "translation text")
 

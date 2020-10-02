@@ -20,6 +20,14 @@ class Translation
     I18n.backend.store_translations(locale, { key => value })
   end
 
+  def html?
+    key.end_with?("html")
+  end
+
+  def plain?
+    !html?
+  end
+
   def to_key
     [key.gsub(".", "_")]
   end

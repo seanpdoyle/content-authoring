@@ -1,1 +1,5 @@
+<% if translation.html? %>
+<%= tag.div(sanitize(translation.value), class: "prose") %>
+<% else %>
 <%= strip_tags(translation.value) %>
+<% end %>
