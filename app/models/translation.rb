@@ -16,7 +16,7 @@ class Translation
   def value
     content = ActionText::Content.new(super)
 
-    content.to_plain_text
+    plain? ? content.to_plain_text : content.html_safe
   end
 
   def new_record?
@@ -30,6 +30,14 @@ class Translation
     else
       false
     end
+  end
+
+  def html?
+    key.to_s == "html" || %w[_html .html].any? { key.to_s.ends_with? _1 }
+  end
+
+  def plain?
+    !html?
   end
 
   def to_key

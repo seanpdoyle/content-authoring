@@ -24,6 +24,15 @@ class MarketingsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "#index renders HTML translations as HTML" do
+    with_translations en: { marketings: { index: { hero: { subtitle: { html: "<strong>Bold</strong>" } } } } } do
+      get root_path
+
+      assert_response :success
+      assert_select ".trix-content strong", text: "Bold"
+    end
+  end
+
   private
 
   def assert_trix_editor(name, value)
