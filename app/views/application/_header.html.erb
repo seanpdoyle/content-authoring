@@ -32,11 +32,17 @@
 
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
         <li class="mr-3">
-          <a
-            class="inline-block py-2 px-4 text-black font-bold no-underline"
-            href="#"
-            >Active</a
-          >
+          <% with_options class: "inline-block py-2 px-4 text-black font-bold no-underline" do |admin| %>
+            <% if request.variant.admin? %>
+              <%= admin.button_to session_path, method: :delete do %>
+                Preview
+              <% end %>
+            <% else %>
+              <%= admin.button_to sessions_path, method: :post do %>
+                Edit
+              <% end %>
+            <% end %>
+          <% end %>
         </li>
         <li class="mr-3">
           <a

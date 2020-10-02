@@ -8,6 +8,7 @@ class TranslationsTest < ApplicationSystemTestCase
       translation = translate("marketings.index.hero.title")
 
       visit root_path
+      click_on "Edit"
       within "h1", text: translation do
         find(:rich_text_area).click
         fill_in_rich_text_area with: "New Hero Title"
