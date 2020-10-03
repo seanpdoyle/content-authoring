@@ -5,6 +5,7 @@ class Translation
   attribute :locale, :string, default: -> { I18n.locale }
   attribute :key, :string
   attribute :value, :string
+  attribute :options, default: -> { {} }
 
   validates :value, presence: true
   validate { errors.add(:key, :invalid) if new_record? }
@@ -17,6 +18,19 @@ class Translation
     content = ActionText::Content.new(super)
 
     plain? ? content.to_plain_text : content.html_safe
+  end
+
+  def template
+    without_interpolations = attributes.merge(
+      value: I18n.translate(key, locale: locale, **reserved_options),
+      options: reserved_options
+    )
+
+    Translation.new(without_interpolations)
+  end
+
+  def interpolations
+    interpolation_options.transform_values(&:to_s).reject { |key, value| "%{#{key}}" == value }
   end
 
   def new_record?
@@ -46,5 +60,15 @@ class Translation
 
   def to_s
     value
+  end
+
+  private
+
+  def interpolation_options
+    options.except *I18n::RESERVED_KEYS
+  end
+
+  def reserved_options
+    options.slice *I18n::RESERVED_KEYS
   end
 end

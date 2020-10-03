@@ -23,6 +23,10 @@ trix-toolbar .trix-button-group--block-tools {
   @apply hidden;
 }
 
+trix-toolbar .trix-dialog--interpolations {
+  @apply left-auto right-0 text-lg;
+}
+
 .trix-content a {
   @apply underline;
 }

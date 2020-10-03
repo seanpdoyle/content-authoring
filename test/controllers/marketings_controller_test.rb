@@ -33,6 +33,33 @@ class MarketingsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "#index interpolates plain text values" do
+    with_translations en: { marketings: { index: { hero: { title: "%{count}" } } } } do
+      get root_path
+
+      assert_response :success
+      assert_select "h1", text: "30 Million"
+    end
+  end
+
+  test "#index interpolates HTML text values" do
+    with_translations en: { marketings: { index: { hero: { subtitle: { html: "<em>%{content}</em>" } } } } } do
+      get root_path
+
+      assert_response :success
+      assert_select ".trix-content em", text: "Lorem ipsum dolor"
+    end
+  end
+
+  test "#index with a missing interpolation renders the placeholder" do
+    with_translations en: { marketings: { index: { hero: { title: "%{missing}" } } } } do
+      get root_path
+
+      assert_response :success
+      assert_select "h1", text: "%{missing}"
+    end
+  end
+
   private
 
   def assert_trix_editor(name, value)

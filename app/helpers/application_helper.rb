@@ -14,6 +14,10 @@ module ApplicationHelper
 
         @template.render translation
       end
+    rescue I18n::MissingInterpolationArgument => error
+      options[error.key] = "%{#{error.key}}"
+
+      retry
     end
   end
   private_constant :Editable
