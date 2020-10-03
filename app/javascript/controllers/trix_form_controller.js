@@ -1,13 +1,17 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "editor", "toolbarAddition" ]
+  static targets = [ "editor", "dialogAddition", "toolbarAddition" ]
 
   connect() {
     const buttonRow = this.toolbarTarget.querySelector(".trix-button-row")
+    const dialogs = this.toolbarTarget.querySelector("[data-trix-dialogs]")
 
     for (const target of this.toolbarAdditionTargets) {
       if (buttonRow) buttonRow.append(target)
+    }
+    for (const target of this.dialogAdditionTargets) {
+      if (dialogs) dialogs.append(target)
     }
 
     this.dismiss()

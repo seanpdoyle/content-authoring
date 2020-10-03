@@ -7,12 +7,12 @@
     <h1
       class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"
     >
-      <%= translate(".hero.title") %>
+      <%= translate(".hero.title", count: number_to_human(30_000_000)) %>
     </h1>
     <div
       class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"
     >
-      <%= translate(".hero.subtitle_html") %>
+      <%= translate(".hero.subtitle_html", content: "Lorem ipsum dolor") %>
     </div>
 
     <%= render "button", class: "my-2 md:my-6" do %>
