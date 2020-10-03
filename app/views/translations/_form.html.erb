@@ -16,6 +16,17 @@
     <div class="trix-button-row trix-button-row--end">
       <span class="trix-button-group" data-trix-form-target="toolbarAddition">
         <% tag.with_options class: "trix-button trix-button--icon", tabindex: -1 do |trix| %>
+          <% if translation.interpolations.any? %>
+            <%= trix.button type: :button, title: "Interpolations", data: { trix_action: "interpolations" } do %>
+              <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="17" cy="17" r="1" />
+                <circle cx="7" cy="7" r="1" />
+                <line x1="6" y1="18" x2="18" y2="6" />
+              </svg>
+            <% end %>
+          <% end %>
+
           <%= trix.button type: :submit, title: "Save" do %>
             <svg class="text-green-500" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
               <title>Save</title>
@@ -35,9 +46,30 @@
         <% end %>
       </span>
     </div>
+
+    <div class="trix-dialogs" data-trix-dialogs>
+      <% if translation.interpolations.any? %>
+        <div class="trix-dialog trix-dialog--interpolations" data-trix-dialog="interpolations" data-trix-form-target="dialogAddition">
+          <table class="table-auto">
+            <thead>
+              <th>Placeholder</th>
+              <th>Replacement</th>
+            </thead>
+            <tbody>
+            <% translation.interpolations.each do |interpolation, argument| %>
+              <tr>
+                <th class="border p-2">%{<%= interpolation %>}</th>
+                <td class="border p-2"><%= truncate(argument, length: 15) %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+    </div>
   </trix-toolbar>
 
-  <%= rich_text_area_tag "translation[value]", translation.value,
+  <%= rich_text_area_tag "translation[value]", translation.template,
     class: class_names("outline-none focus:shadow-outline min-h-0 border-0 p-0", { "trix-content": translation.html? }),
     aria: { label: translation.key },
     data: { trix_form_target: "editor" },

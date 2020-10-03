@@ -93,6 +93,46 @@ class TranslationTest < ActiveSupport::TestCase
     assert_equal "text", value
   end
 
+  test "#interpolations returns pairings of placeholders and replacements" do
+    with_translations en: { key: "%{count} %{name}" } do
+      translation = Translation.new(key: :key, options: { count: 1, name: "foo" })
+
+      interpolations = translation.interpolations
+
+      assert_equal({ count: "1", name: "foo" }, interpolations)
+    end
+  end
+
+  test "#interpolations omits replacements that are placeholders" do
+    with_translations en: { key: "%{count} %{name}" } do
+      translation = Translation.new(key: :key, options: { count: 1, name: "%{name}" })
+
+      interpolations = translation.interpolations
+
+      assert_equal({ count: "1" }, interpolations)
+    end
+  end
+
+  test "#template renders plain text translation placeholders" do
+    with_translations en: { key: "%{count}" } do
+      translation = Translation.new(key: :key)
+
+      template = translation.template
+
+      assert_equal "%{count}", template.to_s
+    end
+  end
+
+  test "#template renders HTML translation placeholders" do
+    with_translations en: { html: "<em>%{count}</em>" } do
+      translation = Translation.new(key: :html)
+
+      template = translation.template
+
+      assert_equal "<em>%{count}</em>", template.to_s
+    end
+  end
+
   test "#to_s returns the value for direct interpolation" do
     translation = Translation.new(value: "translation text")
 
