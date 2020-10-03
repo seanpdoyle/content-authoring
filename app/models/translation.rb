@@ -2,7 +2,7 @@ class Translation
   include ActiveModel::Model
   include ActiveModel::Attributes
 
-  attribute :locale, :string
+  attribute :locale, :string, default: -> { I18n.locale }
   attribute :key, :string
   attribute :value, :string
   attribute :options, default: -> { {} }

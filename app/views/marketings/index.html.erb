@@ -19,11 +19,9 @@
       Sign Up
     <% end %>
 
-    <a
-      href="#"
-      class="inline-block mx-auto lg:mx-0 hover:underline bg-transparent text-gray-600 font-extrabold my-2 md:my-6 py-2 lg:py-4 px-8"
-      >View Additional Action</a
-    >
+    <%= translate_interactive ".hero.learn_more" do |editable, translation| %>
+      <%= editable.link_to translation, "#", class: "inline-block mx-auto lg:mx-0 hover:underline bg-transparent text-gray-600 font-extrabold my-2 md:my-6 py-2 lg:py-4 px-8"   %>
+    <% end %>
   </div>
 
   <div class="flex items-center w-full mx-auto content-end">

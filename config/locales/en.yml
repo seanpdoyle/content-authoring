@@ -43,6 +43,7 @@ en:
       hero:
         title: "Main Hero Message to sell yourself!"
         subtitle_html: "Sub-hero message, not too long and not too short. Make it just right!"
+        learn_more: "View Additional Action"
 
       customers:
         title: "Our Customers / Featured in"
