@@ -1,0 +1,576 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Internationalization
+</title>
+    <link href="../../stylesheets/site.css" rel="stylesheet" />
+    <script src="../../javascripts/site.js"></script>
+  </head>
+  <body class="page">
+    <header class="header">
+      <h1 class="header__name">
+<a href="../../">          content-authoring
+</a>      </h1>
+
+
+      <nav class="
+        header__navigation
+        navigation
+        
+      ">
+<a href="../6c6533dbbdac50306e018cfa6c5c50edaeb33e81/">              &#8592; Previous
+</a>
+<a href="../53464a11e615c44bce9fa2494ad98d84f3fb78ab/">              Next &#8594;
+</a>      </nav>
+    </header>
+
+    <main class="content">
+      <details class="accordion content__item">
+        <summary class="accordion__summary">
+          <div class="accordion__closed">
+            <nav class="
+              commit-history
+              u-db-overflow-y--auto
+              u-mb-overflow-x--scroll
+            ">
+                <a href="../47daff4aeed389fbd952a13ed16244af01500ede/" class="commit-node commit-node--collapsed" title="[SKIP]: Create `git-read` GitHub Action
+"></a>
+                <a href="../2702ec7345d931b77b59ae6021d11d93c52a9884/" class="commit-node commit-node--collapsed" title="[GENERATED]: Initial Commit
+"></a>
+                <a href="../09a47f32c1e9a7096e5bd02c19533e36ceb3ca2a/" class="commit-node commit-node--collapsed" title="[GENERATED]: Install ActiveStorage and ActionText
+"></a>
+                <a href="../6c6533dbbdac50306e018cfa6c5c50edaeb33e81/" class="commit-node commit-node--collapsed" title="[SKIP]: Install TailwindCSS
+"></a>
+                <a href="./" class="commit-node commit-node--collapsed" title="Internationalization
+" aria-current="page"></a>
+                <a href="../53464a11e615c44bce9fa2494ad98d84f3fb78ab/" class="commit-node commit-node--collapsed" title="Add style to our page
+"></a>
+                <a href="../609ed2ae56010a5d4b2e1245b6d3fe9255fcd0a1/" class="commit-node commit-node--collapsed" title="Tweak our Copy until it's _just_ right
+"></a>
+                <a href="../4dc4f0b98c459029b7c57e2671ee7542a98b746d/" class="commit-node commit-node--collapsed" title="Limit Edits to an Authenticated Admin"></a>
+                <a href="../9a43f771874f466800135890e83ddf1336607103/" class="commit-node commit-node--collapsed" title="Add support for rendering Rich Text translations"></a>
+                <a href="../b582557c458f953fa25eab6d21c372d9c93807a3/" class="commit-node commit-node--collapsed" title="Support Translation Interpolations"></a>
+                <a href="../817101a8a19ea0bb50e0a06c4164aac68b217232/" class="commit-node commit-node--collapsed" title="Maintain scrollY across Turbolinks submit redirect"></a>
+            </nav>
+
+            <div class="accordion__toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="accordion--desktop"><title>Expand History</title>
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="accordion--mobile"><title>Expand History</title>
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+            </div>
+          </div>
+
+          <div class="accordion__opened">
+            <div class="accordion__toggle accordion__toggle--fill">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="accordion--desktop"><title>Collapse History</title>
+  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 010 .708L5.707 8l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+</svg>
+
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="accordion--mobile"><title>Collapse History</title>
+  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+</svg>
+
+            </div>
+          </div>
+        </summary>
+
+        <nav class="
+          commit-history
+          commit-history--full
+          u-db-overflow-y--auto
+          u-mb-overflow-x--scroll
+        ">
+<a href="../47daff4aeed389fbd952a13ed16244af01500ede/" class="commit-node commit-node--full">              <p>[SKIP]: Create <code>git-read</code> GitHub Action</p>
+
+</a><a href="../2702ec7345d931b77b59ae6021d11d93c52a9884/" class="commit-node commit-node--full">              <p>[GENERATED]: Initial Commit</p>
+
+</a><a href="../09a47f32c1e9a7096e5bd02c19533e36ceb3ca2a/" class="commit-node commit-node--full">              <p>[GENERATED]: Install ActiveStorage and ActionText</p>
+
+</a><a href="../6c6533dbbdac50306e018cfa6c5c50edaeb33e81/" class="commit-node commit-node--full">              <p>[SKIP]: Install TailwindCSS</p>
+
+</a><a href="./" class="commit-node commit-node--full" aria-current="page">              <p>Internationalization</p>
+
+</a><a href="../53464a11e615c44bce9fa2494ad98d84f3fb78ab/" class="commit-node commit-node--full">              <p>Add style to our page</p>
+
+</a><a href="../609ed2ae56010a5d4b2e1245b6d3fe9255fcd0a1/" class="commit-node commit-node--full">              <p>Tweak our Copy until it&#39;s <em>just</em> right</p>
+
+</a><a href="../4dc4f0b98c459029b7c57e2671ee7542a98b746d/" class="commit-node commit-node--full">              <p>Limit Edits to an Authenticated Admin</p>
+
+</a><a href="../9a43f771874f466800135890e83ddf1336607103/" class="commit-node commit-node--full">              <p>Add support for rendering Rich Text translations</p>
+
+</a><a href="../b582557c458f953fa25eab6d21c372d9c93807a3/" class="commit-node commit-node--full">              <p>Support Translation Interpolations</p>
+
+</a><a href="../817101a8a19ea0bb50e0a06c4164aac68b217232/" class="commit-node commit-node--full">              <p>Maintain scrollY across Turbolinks submit redirect</p>
+
+</a>        </nav>
+      </details>
+
+      <article class="
+        commit-content
+        commit-content--double
+        content__item
+        content__item--grow
+      ">
+        <section class="commit commit--message">
+
+          <h1 id="internationalization">Internationalization</h1>
+
+<p><a href="https://en.wikipedia.org/wiki/Internationalization_and_localization"><dfn id="i18n">Internationalization</dfn> (<abbr
+title="Internationalization">I18n</abbr>)</a> is the process of
+designing a software application so that it can be adapted to various
+languages and regions without engineering changes.</p>
+
+<p>When creating an application with for <em>single target</em> locale and
+language, implementing the application with
+<a href="#i18n">internationalization</a> in mind can serve as a valuable foundation
+for decoupling the <a href="https://en.wikipedia.org/wiki/Copywriting">copywriting</a> process from the application
+development process.</p>
+
+<h2 id="lets-create-a-marketing-page">Let&rsquo;s create a Marketing page</h2>
+
+<p>Our application&rsquo;s landing page will include copy about a hypothetical
+product launch.</p>
+
+<p>This commit introduces all constituent parts, including a <a href="https://edgeguides.rubyonrails.org/routing.html#using-root"><code>root</code> route
+declaration</a>, a <a href="https://edgeguides.rubyonrails.org/action_controller_overview.html#what-does-a-controller-do-questionmark"><code>MarketingsController</code></a>,
+and a <a href="https://edgeguides.rubyonrails.org/layouts_and_rendering.html#overview-how-the-pieces-fit-together">view template for that rendering the HTML response</a>
+from that controller&rsquo;s <code>index</code> action.</p>
+
+<p>For the most part, that portion of this changeset&rsquo;s code is standard and
+uninteresting.</p>
+
+<h3>Rails <abbr title="loves">❤️</abbr> [I18n](#i18n)</h3>
+
+<p>Out of the box, [Rails provides framework-level support][rails-18n] for
+declaring and translation internationalized text.</p>
+
+<p>The <a href="https://edgeguides.rubyonrails.org/i18n.html">Rails Internationalization Guides</a> <a href="https://edgeguides.rubyonrails.org/i18n.html#internationalization-and-localization">include a section
+that outlines the changes</a> involved in rendering
+translated text into a response&rsquo;s HTML through a controller&rsquo;s <code>flash</code>
+helper.</p>
+
+<h3>Declaring and rendering our Translations</h3>
+
+<p>This commit&rsquo;s changes take that example&rsquo;s code a step further by
+rendering translated text directly into the <code>marketings#index</code> template
+via calls to the <a href="https://edgeapi.rubyonrails.org/classes/ActionView/Helpers/TranslationHelper.html#method-i-translate"><code>translate</code> helper</a>, and into our
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title">document&rsquo;s <code>&lt;title&gt;</code> element</a> in the <code>layouts/applications</code>
+layout via a <a href="https://edgeguides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method">combination of calls to the <code>content_for</code>
+helper</a> (both <a href="https://edgeapi.rubyonrails.org/classes/ActionView/Helpers/CaptureHelper.html#method-i-content_for">with and without a block
+argument</a>):</p>
+<div class="highlight"><pre class="highlight plaintext"><code>--- /dev/null
++++ b/app/views/marketings/index.html.erb
+@@ -0,0 +1,5 @@
++&lt;% content_for :document_title do %&gt;
++  &lt;%= translate(".hero.title") %&gt;
++&lt;% end %&gt;
++
++&lt;h1&gt;&lt;%= translate(".hero.title") %&gt;&lt;/h1&gt;
+</code></pre></div>
+<p>Since the calls to <code>translate</code> are made from <a href="https://edgeguides.rubyonrails.org/i18n.html#lazy-lookup">within a controller
+action&rsquo;s view template</a>, both the controller name
+(<code>marketings</code>) and action name (<code>index</code>) portions of the key can be
+omitted.</p>
+
+<p>Finally, to set the text <code>Content Authoring</code> as the value for the
+<code>en.marketing.hero.title</code> translation key, declare it in the
+<a href="#config/locales/en.yml"><code>config/locales/en.yml</code> configuration file</a>:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>--- a/config/locales/en.yml
++++ b/config/locales/en.yml
+@@ -30,4 +30,7 @@
+ # available at https://guides.rubyonrails.org/i18n.html.
+
+ en:
+-  hello: "Hello world"
++  marketings:
++    index:
++      hero:
++        title: "Content Authoring"
+</code></pre></div>
+<h3>Testing out our translations</h3>
+
+<p>In order to make sure that reading and writing our translations is
+working, this commit also <a href="#test/controllers/marketings_controller_test.rb">includes a test for the
+<code>MarketingsController#index</code>
+action</a>, along with two
+changes to Rails&rsquo; internationalization configuration:</p>
+<div class="highlight"><pre class="highlight diff"><code><span class="gd">--- a/config/environments/development.rb
+</span><span class="gi">+++ b/config/environments/development.rb
+</span><span class="p">@@ -62,7 +62,7 @@</span> Rails.application.configure do
+   config.assets.quiet = true
+
+   # Raises error for missing translations.
+<span class="gd">-  # config.i18n.raise_on_missing_translations = true
+</span><span class="gi">+  config.i18n.raise_on_missing_translations = true
+</span>
+   # Annotate rendered view with file names
+   # config.action_view.annotate_rendered_view_with_filenames = true
+<span class="gh">diff --git a/config/environments/test.rb b/config/environments/test.rb
+index b5edb26..0f7d25d 100644
+</span><span class="gd">--- a/config/environments/test.rb
+</span><span class="gi">+++ b/config/environments/test.rb
+</span><span class="p">@@ -53,7 +53,7 @@</span> Rails.application.configure do
+   config.active_support.disallowed_deprecation_warnings = []
+
+   # Raises error for missing translations.
+<span class="gd">-  # config.i18n.raise_on_missing_translations = true
+</span><span class="gi">+  config.i18n.raise_on_missing_translations = true
+</span>
+   # Annotate rendered view with file names
+   # config.action_view.annotate_rendered_view_with_filenames = true
+</code></pre></div>
+<p>Without these configuration changes, tests that cover controllers that
+render incorrectly declared translations fail with confusing messages:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>Failure:
+  test/controllers/marketings_controller_test.rb|9| MarketingsControllerTest#test_#index_renders_marketing_copy
+  &lt;&lt;span class="translation_missing" title="translation missing: en.marketings.index.title"&gt;Title&lt;/span&gt;&gt; expected but was &lt;Title&gt;..
+  Expected 0 to be &gt;= 1.
+</code></pre></div>
+<p>The <code>&lt;span class=&quot;translation_missing&quot; title=&quot;translation missing:
+en.marketings.index.title&quot;&gt;Title&lt;/span&gt;</code> part of the exception is
+surprising: we didn&rsquo;t write that code to render that <code>&lt;span&gt;</code> element,
+so what did?</p>
+
+<p>By default, when Rails is running in a development or test environment
+mode, it is configured to render <code>&lt;span&gt;</code> elements like this when it
+fails to translate an <a href="#i18n">internationalization</a> key:</p>
+
+<blockquote>
+<p>Rails adds a <code>t</code> (<code>translate</code>) helper method to your views so that you
+do not need to spell out <code>I18n.t</code> all the time. Additionally this
+helper will catch missing translations and wrap the resulting error
+message into a <code>&lt;span class=&quot;translation_missing&quot;&gt;</code>.</p>
+
+<p><a href="https://edgeguides.rubyonrails.org/i18n.html#abstracting-localized-code">Section 3.1 of Rails I18n Guides</a></p>
+</blockquote>
+
+<p>In an effort to make our test failures communicate more helpful
+information, we configure Rails to raise an exception instead.</p>
+
+<p>After making this configuration change and re-running our tests, the
+failure message is much more helpful:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>Error:
+  MarketingsControllerTest#test_#index_renders_marketing_copy:
+  ActionView::Template::Error: translation missing: en.marketings.index.title
+</code></pre></div>
+<h2 id="our-application-so-far">Our application so far</h2>
+
+<p>At this point, we have a functional application that renders text from
+an internationalization-ready, configurable set of translations!</p>
+
+<p>Visually, the application lacks… an aesthetic identity.</p>
+
+<h3>Desktop</h3>
+
+<p><img src="https://user-images.githubusercontent.com/2575027/95623236-ed487480-0a42-11eb-902e-8a6bf3ed84b1.png" alt="marketings#index in desktop dimensions" /></p>
+
+<h3>Mobile</h3>
+
+<p><img src="https://user-images.githubusercontent.com/2575027/95623237-ed487480-0a42-11eb-9073-e5155599087b.png" alt="marketings#index in mobile dimensions" /></p>
+
+<p>Let&rsquo;s change that!</p>
+
+        </section>
+
+          <aside class="commit commit--diff commit--long-content">
+              <details
+  id="app/controllers/marketings_controller.rb"
+  open
+  class="file"
+>
+  <summary class="file__name">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/controllers/marketings_controller.rb</title>
+  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/controllers/marketings_controller.rb</title>
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code>
+      app/controllers/marketings_controller.rb
+    </code>
+  </summary>
+
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/controllers/marketings_controller.rb b/app/controllers/marketings_controller.rb
+</span><span class="p">new file mode 100644
+</span><span class="gh">index 0000000..24d74e2
+</span><span class="gd">--- /dev/null
+</span><span class="gi">+++ b/app/controllers/marketings_controller.rb
+</span><span class="p">@@ -0,0 +1,2 @@</span>
+<span class="gi">+class MarketingsController &lt; ApplicationController
++end
+</span></code></pre></div></details>
+
+              <details
+  id="app/views/layouts/application.html.erb"
+  open
+  class="file"
+>
+  <summary class="file__name">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/views/layouts/application.html.erb</title>
+  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/views/layouts/application.html.erb</title>
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code>
+      app/views/layouts/application.html.erb
+    </code>
+  </summary>
+
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/layouts/application.html.erb b/app/views/layouts/application.html.erb
+index 0455560..cdb9905 100644
+</span><span class="gd">--- a/app/views/layouts/application.html.erb
+</span><span class="gi">+++ b/app/views/layouts/application.html.erb
+</span><span class="p">@@ -1,7 +1,7 @@</span>
+ &lt;!DOCTYPE html&gt;
+ &lt;html&gt;
+   &lt;head&gt;
+<span class="gd">-    &lt;title&gt;ContentAuthoring&lt;/title&gt;
+</span><span class="gi">+    &lt;title&gt;&lt;%= content_for(:document_title) %&gt;&lt;/title&gt;
+</span>     &lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;
+     &lt;%= csrf_meta_tags %&gt;
+     &lt;%= csp_meta_tag %&gt;
+</code></pre></div></details>
+
+              <details
+  id="app/views/marketings/index.html.erb"
+  open
+  class="file"
+>
+  <summary class="file__name">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/views/marketings/index.html.erb</title>
+  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/views/marketings/index.html.erb</title>
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code>
+      app/views/marketings/index.html.erb
+    </code>
+  </summary>
+
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/marketings/index.html.erb b/app/views/marketings/index.html.erb
+</span><span class="p">new file mode 100644
+</span><span class="gh">index 0000000..cf46e11
+</span><span class="gd">--- /dev/null
+</span><span class="gi">+++ b/app/views/marketings/index.html.erb
+</span><span class="p">@@ -0,0 +1,5 @@</span>
+<span class="gi">+&lt;% content_for :document_title do %&gt;
++  &lt;%= translate(".hero.title") %&gt;
++&lt;% end %&gt;
++
++&lt;h1&gt;&lt;%= translate(".hero.title") %&gt;&lt;/h1&gt;
+</span></code></pre></div></details>
+
+              <details
+  id="config/environments/development.rb"
+  open
+  class="file"
+>
+  <summary class="file__name">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse config/environments/development.rb</title>
+  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand config/environments/development.rb</title>
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code>
+      config/environments/development.rb
+    </code>
+  </summary>
+
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/config/environments/development.rb b/config/environments/development.rb
+index 643a04e..7810b12 100644
+</span><span class="gd">--- a/config/environments/development.rb
+</span><span class="gi">+++ b/config/environments/development.rb
+</span><span class="p">@@ -62,7 +62,7 @@</span> Rails.application.configure do
+   config.assets.quiet = true
+ 
+   # Raises error for missing translations.
+<span class="gd">-  # config.i18n.raise_on_missing_translations = true
+</span><span class="gi">+  config.i18n.raise_on_missing_translations = true
+</span> 
+   # Annotate rendered view with file names
+   # config.action_view.annotate_rendered_view_with_filenames = true
+</code></pre></div></details>
+
+              <details
+  id="config/environments/test.rb"
+  open
+  class="file"
+>
+  <summary class="file__name">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse config/environments/test.rb</title>
+  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand config/environments/test.rb</title>
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code>
+      config/environments/test.rb
+    </code>
+  </summary>
+
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/config/environments/test.rb b/config/environments/test.rb
+index b5edb26..0f7d25d 100644
+</span><span class="gd">--- a/config/environments/test.rb
+</span><span class="gi">+++ b/config/environments/test.rb
+</span><span class="p">@@ -53,7 +53,7 @@</span> Rails.application.configure do
+   config.active_support.disallowed_deprecation_warnings = []
+ 
+   # Raises error for missing translations.
+<span class="gd">-  # config.i18n.raise_on_missing_translations = true
+</span><span class="gi">+  config.i18n.raise_on_missing_translations = true
+</span> 
+   # Annotate rendered view with file names
+   # config.action_view.annotate_rendered_view_with_filenames = true
+</code></pre></div></details>
+
+              <details
+  id="config/locales/en.yml"
+  open
+  class="file"
+>
+  <summary class="file__name">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse config/locales/en.yml</title>
+  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand config/locales/en.yml</title>
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code>
+      config/locales/en.yml
+    </code>
+  </summary>
+
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/config/locales/en.yml b/config/locales/en.yml
+index cf9b342..8488e13 100644
+</span><span class="gd">--- a/config/locales/en.yml
+</span><span class="gi">+++ b/config/locales/en.yml
+</span><span class="p">@@ -30,4 +30,7 @@</span>
+ # available at https://guides.rubyonrails.org/i18n.html.
+ 
+ en:
+<span class="gd">-  hello: "Hello world"
+</span><span class="gi">+  marketings:
++    index:
++      hero:
++        title: "Content Authoring"
+</span></code></pre></div></details>
+
+              <details
+  id="config/routes.rb"
+  open
+  class="file"
+>
+  <summary class="file__name">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse config/routes.rb</title>
+  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand config/routes.rb</title>
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code>
+      config/routes.rb
+    </code>
+  </summary>
+
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/config/routes.rb b/config/routes.rb
+index c06383a..76693b1 100644
+</span><span class="gd">--- a/config/routes.rb
+</span><span class="gi">+++ b/config/routes.rb
+</span><span class="p">@@ -1,3 +1,4 @@</span>
+ Rails.application.routes.draw do
+   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+<span class="gi">+  root to: "marketings#index"
+</span> end
+</code></pre></div></details>
+
+              <details
+  id="test/controllers/marketings_controller_test.rb"
+  open
+  class="file"
+>
+  <summary class="file__name">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse test/controllers/marketings_controller_test.rb</title>
+  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand test/controllers/marketings_controller_test.rb</title>
+  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code>
+      test/controllers/marketings_controller_test.rb
+    </code>
+  </summary>
+
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/controllers/marketings_controller_test.rb b/test/controllers/marketings_controller_test.rb
+</span><span class="p">new file mode 100644
+</span><span class="gh">index 0000000..6850026
+</span><span class="gd">--- /dev/null
+</span><span class="gi">+++ b/test/controllers/marketings_controller_test.rb
+</span><span class="p">@@ -0,0 +1,15 @@</span>
+<span class="gi">+require "test_helper"
++
++class MarketingsControllerTest &lt; ActionDispatch::IntegrationTest
++  include ActionView::Helpers::TranslationHelper
++
++  test "#index renders marketing copy" do
++    get root_path
++
++    assert_response :success
++    with_options scope: [:marketings, :index, :hero] do |i18n|
++      assert_select "title", text: i18n.translate(:title)
++      assert_select "h1", text: i18n.translate(:title)
++    end
++  end
++end
+</span></code></pre></div></details>
+
+          </aside>
+      </article>
+    </main>
+  </body>
+</html>
