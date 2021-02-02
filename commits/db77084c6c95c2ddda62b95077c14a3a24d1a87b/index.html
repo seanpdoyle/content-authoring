@@ -1,0 +1,482 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Support Translation Interpolations</title>
+    <script src="../../javascripts/site.js"></script>
+    <link href="../../stylesheets/syntax.css" rel="stylesheet" />
+    <script type="module">
+      import "https://cdn.skypack.dev/@hotwired/turbo@latest"
+
+      addEventListener("turbo:load", () => {
+        for (let current of document.querySelectorAll('[aria-current="page"]')) {
+          current.removeAttribute("aria-current")
+        }
+
+        for (const link of document.querySelectorAll("a")) {
+          if (link.pathname === window.location.pathname) {
+            link.setAttribute("aria-current", "page")
+            link.scrollIntoView({ block: "center", scroll: "smooth" })
+          }
+        }
+      })
+    </script>
+  </head>
+  <body class="min-h-screen">
+    <header class="flex flex-row h-12 border-b">
+      <h1 class="flex items-center justify-center w-full md:border-r md:w-96">
+<a href="/content-authoring/index.html">          content-authoring
+</a>      </h1>
+
+      <nav class="flex flex-grow justify-between items-center border-t p-3 fixed inset-x-0 bottom-0 bg-white z-10 md:px-4 md:py-0 md:bg-transparent md:border-0 md:relative">
+
+<a href="/content-authoring/commits/28b7e2ecd1a77b440eb59e2a2ce7f5f9d2c6f55c/index.html">              &#8592; Previous
+</a>
+          <span class="flex-grow"><!-- ensure the links are pushed to the container's extremes --></span>
+
+<a href="/content-authoring/commits/b3c95eb3ca43cce5f63f842dc00f833f704475fc/index.html">              Next &#8594;
+</a>      </nav>
+    </header>
+
+    <main class="flex flex-col md:flex-row">
+      <details id="navigation" class="relative pb-8 md:h-screen-fit" data-turbo-permanent>
+        <summary class="cursor-pointer inset-0 top-auto list-none outline-none md:relative">
+          <span class="sr-only open:hidden">Expand History</span>
+          <span class="sr-only hidden open:initial">Collapse History</span>
+          <div class="md:h-screen-fit flex flex-col border-b border-t h-8 w-full justify-center md:w-8 md:border-r md:border-l md:border-t-0 open:absolute inset-x-0 bottom-0 top-auto md:top-0 md:left-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="transform rotate-90 open:-rotate-90 md:rotate-0 md:open:rotate-180">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+          </div>
+        </summary>
+
+        <nav class="flex flex-col px-4 my-4 overflow-y-auto h-48 w-screen current-within:font-bold md:h-screen-fit md:w-96 md:my-auto md:p-2 md:pr-10 md:space-y-2">
+<a href="/content-authoring/commits/f4d83ef8fa820cb0758fd7623d8593ccc9a61f68/index.html">              <p>[SKIP]: Create <code>git-read</code> GitHub Action</p>
+
+</a><a href="/content-authoring/commits/8a56150e392317c89e2b25f386e44f2538e3e8f5/index.html">              <p>[GENERATED]: Initial Commit</p>
+
+</a><a href="/content-authoring/commits/d918fb993e07525c1e10fd1d8468f772094e0340/index.html">              <p>[GENERATED]: Install ActiveStorage and ActionText</p>
+
+</a><a href="/content-authoring/commits/74ba930ace4538eeb6f2a043bacc3ec0b0cc05de/index.html">              <p>[SKIP]: Install TailwindCSS</p>
+
+</a><a href="/content-authoring/commits/04f9ab2c7df520716c882a055751f4202a854890/index.html">              <p>Internationalization</p>
+
+</a><a href="/content-authoring/commits/9c9446ff89a718f35c45ee8a681d0d2b10f8c0d5/index.html">              <p>Add style to our page</p>
+
+</a><a href="/content-authoring/commits/4cc435fb50834abb362aba45a4a62b153e7a8459/index.html">              <p>Tweak our Copy until it&#39;s <em>just</em> right</p>
+
+</a><a href="/content-authoring/commits/55714315b8a48a3e0ef9907fc130cfd64c6da00e/index.html">              <p>Limit Edits to an Authenticated Admin</p>
+
+</a><a href="/content-authoring/commits/28b7e2ecd1a77b440eb59e2a2ce7f5f9d2c6f55c/index.html">              <p>Add support for rendering Rich Text translations</p>
+
+</a><a href="/content-authoring/commits/db77084c6c95c2ddda62b95077c14a3a24d1a87b/index.html">              <p>Support Translation Interpolations</p>
+
+</a><a href="/content-authoring/commits/b3c95eb3ca43cce5f63f842dc00f833f704475fc/index.html">              <p>Maintain scrollY across Turbolinks submit redirect</p>
+
+</a>        </nav>
+      </details>
+
+      <article class="flex-grow p-4 md:flex md:justify-center md:h-screen-fit md:p-8 md:overflow-y-auto lg:w-7/12">
+        <section class="prose prose-lg md:prose-xl">
+
+          <h1 id="support-translation-interpolations">Support Translation Interpolations</h1>
+
+        </section>
+      </article>
+
+        <aside class="md:h-screen-fit md:overflow-y-auto lg:w-5/12">
+            <details id="app/helpers/application_helper.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/helpers/application_helper.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/helpers/application_helper.rb b/app/helpers/application_helper.rb
+index 347c95d..c212a9e 100644
+</span><span class="gd">--- a/app/helpers/application_helper.rb
+</span><span class="gi">+++ b/app/helpers/application_helper.rb
+</span><span class="p">@@ -14,6 +14,10 @@</span> module ApplicationHelper
+ 
+         @template.render translation
+       end
+<span class="gi">+    rescue I18n::MissingInterpolationArgument =&gt; error
++      options[error.key] = "%{#{error.key}}"
++
++      retry
+</span>     end
+   end
+   private_constant :Editable
+</code></pre></div></details>
+
+            <details id="app/javascript/controllers/trix_form_controller.js" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/javascript/controllers/trix_form_controller.js</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/javascript/controllers/trix_form_controller.js b/app/javascript/controllers/trix_form_controller.js
+index a5a1b48..a0ff4f2 100644
+</span><span class="gd">--- a/app/javascript/controllers/trix_form_controller.js
+</span><span class="gi">+++ b/app/javascript/controllers/trix_form_controller.js
+</span><span class="p">@@ -1,14 +1,18 @@</span>
+ import { Controller } from "stimulus"
+ 
+ export default class extends Controller {
+<span class="gd">-  static targets = [ "editor", "toolbarAddition" ]
+</span><span class="gi">+  static targets = [ "editor", "dialogAddition", "toolbarAddition" ]
+</span> 
+   connect() {
+     const buttonRow = this.toolbarTarget.querySelector(".trix-button-row")
+<span class="gi">+    const dialogs = this.toolbarTarget.querySelector("[data-trix-dialogs]")
+</span> 
+     for (const target of this.toolbarAdditionTargets) {
+       if (buttonRow) buttonRow.append(target)
+     }
+<span class="gi">+    for (const target of this.dialogAdditionTargets) {
++      if (dialogs) dialogs.append(target)
++    }
+</span> 
+     this.dismiss()
+   }
+</code></pre></div></details>
+
+            <details id="app/javascript/packs/application.css" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/javascript/packs/application.css</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/javascript/packs/application.css b/app/javascript/packs/application.css
+index d80bccc..ac8041b 100644
+</span><span class="gd">--- a/app/javascript/packs/application.css
+</span><span class="gi">+++ b/app/javascript/packs/application.css
+</span><span class="p">@@ -23,6 +23,10 @@</span> trix-toolbar .trix-button-group--block-tools {
+   @apply hidden;
+ }
+ 
+<span class="gi">+trix-toolbar .trix-dialog--interpolations {
++  @apply left-auto right-0 text-lg;
++}
++
+</span> .trix-content a {
+   @apply underline;
+ }
+</code></pre></div></details>
+
+            <details id="app/models/translation.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/models/translation.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/models/translation.rb b/app/models/translation.rb
+index 16a0df5..4cb83ac 100644
+</span><span class="gd">--- a/app/models/translation.rb
+</span><span class="gi">+++ b/app/models/translation.rb
+</span><span class="p">@@ -5,6 +5,7 @@</span> class Translation
+   attribute :locale, :string, default: -&gt; { I18n.locale }
+   attribute :key, :string
+   attribute :value, :string
+<span class="gi">+  attribute :options, default: -&gt; { {} }
+</span> 
+   validates :value, presence: true
+   validate { errors.add(:key, :invalid) if new_record? }
+<span class="p">@@ -19,6 +20,19 @@</span> class Translation
+     plain? ? content.to_plain_text : content.html_safe
+   end
+ 
+<span class="gi">+  def template
++    without_interpolations = attributes.merge(
++      value: I18n.translate(key, locale: locale, **reserved_options),
++      options: reserved_options
++    )
++
++    Translation.new(without_interpolations)
++  end
++
++  def interpolations
++    interpolation_options.transform_values(&amp;:to_s).reject { |key, value| "%{#{key}}" == value }
++  end
++
+</span>   def new_record?
+     I18n.translate(key, locale: locale, default: "").blank?
+   end
+<span class="p">@@ -47,4 +61,14 @@</span> class Translation
+   def to_s
+     value
+   end
+<span class="gi">+
++  private
++
++  def interpolation_options
++    options.except *I18n::RESERVED_KEYS
++  end
++
++  def reserved_options
++    options.slice *I18n::RESERVED_KEYS
++  end
+</span> end
+</code></pre></div></details>
+
+            <details id="app/views/marketings/index.html.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/views/marketings/index.html.erb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/marketings/index.html.erb b/app/views/marketings/index.html.erb
+index cabb50f..96fc32f 100644
+</span><span class="gd">--- a/app/views/marketings/index.html.erb
+</span><span class="gi">+++ b/app/views/marketings/index.html.erb
+</span><span class="p">@@ -5,11 +5,11 @@</span>
+ &lt;div class="container mx-auto h-screen"&gt;
+   &lt;div class="text-center px-3 lg:px-0"&gt;
+     &lt;h1 class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"&gt;
+<span class="gd">-      &lt;%= editable.translate(".hero.title") %&gt;
+</span><span class="gi">+      &lt;%= editable.translate(".hero.title", count: number_to_human(30_000_000)) %&gt;
+</span>     &lt;/h1&gt;
+ 
+     &lt;div class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"&gt;
+<span class="gd">-      &lt;%= editable.translate(".hero.subtitle.html") %&gt;
+</span><span class="gi">+      &lt;%= editable.translate(".hero.subtitle.html", content: "Lorem ipsum dolor") %&gt;
+</span>     &lt;/div&gt;
+ 
+     &lt;button class="mx-auto lg:mx-0 hover:underline bg-gradient-to-r from-orange-300 to-orange-400 text-gray-800 font-extrabold rounded py-4 px-8 shadow opacity-75 my-2 md:my-6"&gt;
+</code></pre></div></details>
+
+            <details id="app/views/translations/_form.html.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/views/translations/_form.html.erb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/translations/_form.html.erb b/app/views/translations/_form.html.erb
+index 04eb447..9784e67 100644
+</span><span class="gd">--- a/app/views/translations/_form.html.erb
+</span><span class="gi">+++ b/app/views/translations/_form.html.erb
+</span><span class="p">@@ -16,6 +16,17 @@</span>
+     &lt;div class="trix-button-row trix-button-row--end"&gt;
+       &lt;span class="trix-button-group" data-trix-form-target="toolbarAddition"&gt;
+         &lt;% tag.with_options class: "trix-button trix-button--icon", tabindex: -1 do |trix| %&gt;
+<span class="gi">+          &lt;% if translation.interpolations.any? %&gt;
++            &lt;%= trix.button type: :button, title: "Interpolations", data: { trix_action: "interpolations" } do %&gt;
++              &lt;svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"&gt;
++                &lt;path stroke="none" d="M0 0h24v24H0z" fill="none"/&gt;
++                &lt;circle cx="17" cy="17" r="1" /&gt;
++                &lt;circle cx="7" cy="7" r="1" /&gt;
++                &lt;line x1="6" y1="18" x2="18" y2="6" /&gt;
++              &lt;/svg&gt;
++            &lt;% end %&gt;
++          &lt;% end %&gt;
++
+</span>           &lt;%= trix.button type: :submit, title: "Save" do %&gt;
+             &lt;svg class="text-green-500" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"&gt;
+               &lt;title&gt;Save&lt;/title&gt;
+<span class="p">@@ -35,9 +46,30 @@</span>
+         &lt;% end %&gt;
+       &lt;/span&gt;
+     &lt;/div&gt;
+<span class="gi">+
++    &lt;div class="trix-dialogs" data-trix-dialogs&gt;
++      &lt;% if translation.interpolations.any? %&gt;
++        &lt;div class="trix-dialog trix-dialog--interpolations" data-trix-dialog="interpolations" data-trix-form-target="dialogAddition"&gt;
++          &lt;table class="table-auto"&gt;
++            &lt;thead&gt;
++              &lt;th&gt;Placeholder&lt;/th&gt;
++              &lt;th&gt;Replacement&lt;/th&gt;
++            &lt;/thead&gt;
++            &lt;tbody&gt;
++            &lt;% translation.interpolations.each do |interpolation, argument| %&gt;
++              &lt;tr&gt;
++                &lt;th class="border p-2"&gt;%{&lt;%= interpolation %&gt;}&lt;/th&gt;
++                &lt;td class="border p-2"&gt;&lt;%= truncate(argument, length: 15) %&gt;&lt;/td&gt;
++              &lt;/tr&gt;
++            &lt;% end %&gt;
++            &lt;/tbody&gt;
++          &lt;/table&gt;
++        &lt;/div&gt;
++      &lt;% end %&gt;
++    &lt;/div&gt;
+</span>   &lt;/trix-toolbar&gt;
+ 
+<span class="gd">-  &lt;%= rich_text_area_tag "translation[value]", translation.value,
+</span><span class="gi">+  &lt;%= rich_text_area_tag "translation[value]", translation.template,
+</span>     class: class_names("outline-none focus:shadow-outline min-h-0 border-0 p-0", { "trix-content": translation.html? }),
+     aria: { label: translation.key },
+     data: { trix_form_target: "editor" },
+</code></pre></div></details>
+
+            <details id="test/controllers/marketings_controller_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">test/controllers/marketings_controller_test.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/controllers/marketings_controller_test.rb b/test/controllers/marketings_controller_test.rb
+index 7fdb688..c8375b2 100644
+</span><span class="gd">--- a/test/controllers/marketings_controller_test.rb
+</span><span class="gi">+++ b/test/controllers/marketings_controller_test.rb
+</span><span class="p">@@ -33,6 +33,33 @@</span> class MarketingsControllerTest &lt; ActionDispatch::IntegrationTest
+     end
+   end
+ 
+<span class="gi">+  test "#index interpolates plain text values" do
++    with_translations en: { marketings: { index: { hero: { title: "%{count}" } } } } do
++      get root_path
++
++      assert_response :success
++      assert_select "h1", text: "30 Million"
++    end
++  end
++
++  test "#index interpolates HTML text values" do
++    with_translations en: { marketings: { index: { hero: { subtitle: { html: "&lt;em&gt;%{content}&lt;/em&gt;" } } } } } do
++      get root_path
++
++      assert_response :success
++      assert_select ".trix-content em", text: "Lorem ipsum dolor"
++    end
++  end
++
++  test "#index with a missing interpolation renders the placeholder" do
++    with_translations en: { marketings: { index: { hero: { title: "%{missing}" } } } } do
++      get root_path
++
++      assert_response :success
++      assert_select "h1", text: "%{missing}"
++    end
++  end
++
+</span>   private
+ 
+   def assert_trix_editor(name, value)
+</code></pre></div></details>
+
+            <details id="test/models/translation_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">test/models/translation_test.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/models/translation_test.rb b/test/models/translation_test.rb
+index 3719e58..5e3dd78 100644
+</span><span class="gd">--- a/test/models/translation_test.rb
+</span><span class="gi">+++ b/test/models/translation_test.rb
+</span><span class="p">@@ -93,6 +93,46 @@</span> class TranslationTest &lt; ActiveSupport::TestCase
+     assert_equal "text", value
+   end
+ 
+<span class="gi">+  test "#interpolations returns pairings of placeholders and replacements" do
++    with_translations en: { key: "%{count} %{name}" } do
++      translation = Translation.new(key: :key, options: { count: 1, name: "foo" })
++
++      interpolations = translation.interpolations
++
++      assert_equal({ count: "1", name: "foo" }, interpolations)
++    end
++  end
++
++  test "#interpolations omits replacements that are placeholders" do
++    with_translations en: { key: "%{count} %{name}" } do
++      translation = Translation.new(key: :key, options: { count: 1, name: "%{name}" })
++
++      interpolations = translation.interpolations
++
++      assert_equal({ count: "1" }, interpolations)
++    end
++  end
++
++  test "#template renders plain text translation placeholders" do
++    with_translations en: { key: "%{count}" } do
++      translation = Translation.new(key: :key)
++
++      template = translation.template
++
++      assert_equal "%{count}", template.to_s
++    end
++  end
++
++  test "#template renders HTML translation placeholders" do
++    with_translations en: { html: "&lt;em&gt;%{count}&lt;/em&gt;" } do
++      translation = Translation.new(key: :html)
++
++      template = translation.template
++
++      assert_equal "&lt;em&gt;%{count}&lt;/em&gt;", template.to_s
++    end
++  end
++
+</span>   test "#to_s returns the value for direct interpolation" do
+     translation = Translation.new(value: "translation text")
+ 
+</code></pre></div></details>
+
+            <details id="test/system/translations_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">test/system/translations_test.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/system/translations_test.rb b/test/system/translations_test.rb
+index 86fa8e6..fed5b0b 100644
+</span><span class="gd">--- a/test/system/translations_test.rb
+</span><span class="gi">+++ b/test/system/translations_test.rb
+</span><span class="p">@@ -20,4 +20,21 @@</span> class TranslationsTest &lt; ApplicationSystemTestCase
+       end
+     end
+   end
+<span class="gi">+
++  test "edit with interpolation options" do
++    translation = translate("marketings.index.hero.title")
++
++    visit root_path
++    click_on "Edit"
++    within "h1", text: translation do
++      find(:rich_text_area).click
++      fill_in_rich_text_area with: "%{count} users"
++      click_on "Save"
++    end
++    click_on "Preview"
++
++    within "h1", text: "30 Million users" do
++      assert_no_text translation
++    end
++  end
+</span> end
+</code></pre></div></details>
+
+        </aside>
+    </main>
+  </body>
+</html>

@@ -1,128 +1,87 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Tweak our Copy until it's _just_ right
-</title>
-    <link href="../../stylesheets/site.css" rel="stylesheet" />
+    <title>Tweak our Copy until it's _just_ right</title>
     <script src="../../javascripts/site.js"></script>
+    <link href="../../stylesheets/syntax.css" rel="stylesheet" />
+    <script type="module">
+      import "https://cdn.skypack.dev/@hotwired/turbo@latest"
+
+      addEventListener("turbo:load", () => {
+        for (let current of document.querySelectorAll('[aria-current="page"]')) {
+          current.removeAttribute("aria-current")
+        }
+
+        for (const link of document.querySelectorAll("a")) {
+          if (link.pathname === window.location.pathname) {
+            link.setAttribute("aria-current", "page")
+            link.scrollIntoView({ block: "center", scroll: "smooth" })
+          }
+        }
+      })
+    </script>
   </head>
-  <body class="page">
-    <header class="header">
-      <h1 class="header__name">
-<a href="../../">          content-authoring
+  <body class="min-h-screen">
+    <header class="flex flex-row h-12 border-b">
+      <h1 class="flex items-center justify-center w-full md:border-r md:w-96">
+<a href="/content-authoring/index.html">          content-authoring
 </a>      </h1>
 
+      <nav class="flex flex-grow justify-between items-center border-t p-3 fixed inset-x-0 bottom-0 bg-white z-10 md:px-4 md:py-0 md:bg-transparent md:border-0 md:relative">
 
-      <nav class="
-        header__navigation
-        navigation
-        
-      ">
-<a href="../53464a11e615c44bce9fa2494ad98d84f3fb78ab/">              &#8592; Previous
+<a href="/content-authoring/commits/9c9446ff89a718f35c45ee8a681d0d2b10f8c0d5/index.html">              &#8592; Previous
 </a>
-<a href="../4dc4f0b98c459029b7c57e2671ee7542a98b746d/">              Next &#8594;
+          <span class="flex-grow"><!-- ensure the links are pushed to the container's extremes --></span>
+
+<a href="/content-authoring/commits/55714315b8a48a3e0ef9907fc130cfd64c6da00e/index.html">              Next &#8594;
 </a>      </nav>
     </header>
 
-    <main class="content">
-      <details class="accordion content__item">
-        <summary class="accordion__summary">
-          <div class="accordion__closed">
-            <nav class="
-              commit-history
-              u-db-overflow-y--auto
-              u-mb-overflow-x--scroll
-            ">
-                <a href="../47daff4aeed389fbd952a13ed16244af01500ede/" class="commit-node commit-node--collapsed" title="[SKIP]: Create `git-read` GitHub Action
-"></a>
-                <a href="../2702ec7345d931b77b59ae6021d11d93c52a9884/" class="commit-node commit-node--collapsed" title="[GENERATED]: Initial Commit
-"></a>
-                <a href="../09a47f32c1e9a7096e5bd02c19533e36ceb3ca2a/" class="commit-node commit-node--collapsed" title="[GENERATED]: Install ActiveStorage and ActionText
-"></a>
-                <a href="../6c6533dbbdac50306e018cfa6c5c50edaeb33e81/" class="commit-node commit-node--collapsed" title="[SKIP]: Install TailwindCSS
-"></a>
-                <a href="../c38868b2f7cc380d2177ecd7d9f5f2b74d240ae2/" class="commit-node commit-node--collapsed" title="Internationalization
-"></a>
-                <a href="../53464a11e615c44bce9fa2494ad98d84f3fb78ab/" class="commit-node commit-node--collapsed" title="Add style to our page
-"></a>
-                <a href="./" class="commit-node commit-node--collapsed" title="Tweak our Copy until it's _just_ right
-" aria-current="page"></a>
-                <a href="../4dc4f0b98c459029b7c57e2671ee7542a98b746d/" class="commit-node commit-node--collapsed" title="Limit Edits to an Authenticated Admin"></a>
-                <a href="../9a43f771874f466800135890e83ddf1336607103/" class="commit-node commit-node--collapsed" title="Add support for rendering Rich Text translations"></a>
-                <a href="../b582557c458f953fa25eab6d21c372d9c93807a3/" class="commit-node commit-node--collapsed" title="Support Translation Interpolations"></a>
-                <a href="../817101a8a19ea0bb50e0a06c4164aac68b217232/" class="commit-node commit-node--collapsed" title="Maintain scrollY across Turbolinks submit redirect"></a>
-            </nav>
-
-            <div class="accordion__toggle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="accordion--desktop"><title>Expand History</title>
+    <main class="flex flex-col md:flex-row">
+      <details id="navigation" class="relative pb-8 md:h-screen-fit" data-turbo-permanent>
+        <summary class="cursor-pointer inset-0 top-auto list-none outline-none md:relative">
+          <span class="sr-only open:hidden">Expand History</span>
+          <span class="sr-only hidden open:initial">Collapse History</span>
+          <div class="md:h-screen-fit flex flex-col border-b border-t h-8 w-full justify-center md:w-8 md:border-r md:border-l md:border-t-0 open:absolute inset-x-0 bottom-0 top-auto md:top-0 md:left-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="transform rotate-90 open:-rotate-90 md:rotate-0 md:open:rotate-180">
   <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
-
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="accordion--mobile"><title>Expand History</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-            </div>
-          </div>
-
-          <div class="accordion__opened">
-            <div class="accordion__toggle accordion__toggle--fill">
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="accordion--desktop"><title>Collapse History</title>
-  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 010 .708L5.707 8l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
-</svg>
-
-
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="accordion--mobile"><title>Collapse History</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
-</svg>
-
-            </div>
           </div>
         </summary>
 
-        <nav class="
-          commit-history
-          commit-history--full
-          u-db-overflow-y--auto
-          u-mb-overflow-x--scroll
-        ">
-<a href="../47daff4aeed389fbd952a13ed16244af01500ede/" class="commit-node commit-node--full">              <p>[SKIP]: Create <code>git-read</code> GitHub Action</p>
+        <nav class="flex flex-col px-4 my-4 overflow-y-auto h-48 w-screen current-within:font-bold md:h-screen-fit md:w-96 md:my-auto md:p-2 md:pr-10 md:space-y-2">
+<a href="/content-authoring/commits/f4d83ef8fa820cb0758fd7623d8593ccc9a61f68/index.html">              <p>[SKIP]: Create <code>git-read</code> GitHub Action</p>
 
-</a><a href="../2702ec7345d931b77b59ae6021d11d93c52a9884/" class="commit-node commit-node--full">              <p>[GENERATED]: Initial Commit</p>
+</a><a href="/content-authoring/commits/8a56150e392317c89e2b25f386e44f2538e3e8f5/index.html">              <p>[GENERATED]: Initial Commit</p>
 
-</a><a href="../09a47f32c1e9a7096e5bd02c19533e36ceb3ca2a/" class="commit-node commit-node--full">              <p>[GENERATED]: Install ActiveStorage and ActionText</p>
+</a><a href="/content-authoring/commits/d918fb993e07525c1e10fd1d8468f772094e0340/index.html">              <p>[GENERATED]: Install ActiveStorage and ActionText</p>
 
-</a><a href="../6c6533dbbdac50306e018cfa6c5c50edaeb33e81/" class="commit-node commit-node--full">              <p>[SKIP]: Install TailwindCSS</p>
+</a><a href="/content-authoring/commits/74ba930ace4538eeb6f2a043bacc3ec0b0cc05de/index.html">              <p>[SKIP]: Install TailwindCSS</p>
 
-</a><a href="../c38868b2f7cc380d2177ecd7d9f5f2b74d240ae2/" class="commit-node commit-node--full">              <p>Internationalization</p>
+</a><a href="/content-authoring/commits/04f9ab2c7df520716c882a055751f4202a854890/index.html">              <p>Internationalization</p>
 
-</a><a href="../53464a11e615c44bce9fa2494ad98d84f3fb78ab/" class="commit-node commit-node--full">              <p>Add style to our page</p>
+</a><a href="/content-authoring/commits/9c9446ff89a718f35c45ee8a681d0d2b10f8c0d5/index.html">              <p>Add style to our page</p>
 
-</a><a href="./" class="commit-node commit-node--full" aria-current="page">              <p>Tweak our Copy until it&#39;s <em>just</em> right</p>
+</a><a href="/content-authoring/commits/4cc435fb50834abb362aba45a4a62b153e7a8459/index.html">              <p>Tweak our Copy until it&#39;s <em>just</em> right</p>
 
-</a><a href="../4dc4f0b98c459029b7c57e2671ee7542a98b746d/" class="commit-node commit-node--full">              <p>Limit Edits to an Authenticated Admin</p>
+</a><a href="/content-authoring/commits/55714315b8a48a3e0ef9907fc130cfd64c6da00e/index.html">              <p>Limit Edits to an Authenticated Admin</p>
 
-</a><a href="../9a43f771874f466800135890e83ddf1336607103/" class="commit-node commit-node--full">              <p>Add support for rendering Rich Text translations</p>
+</a><a href="/content-authoring/commits/28b7e2ecd1a77b440eb59e2a2ce7f5f9d2c6f55c/index.html">              <p>Add support for rendering Rich Text translations</p>
 
-</a><a href="../b582557c458f953fa25eab6d21c372d9c93807a3/" class="commit-node commit-node--full">              <p>Support Translation Interpolations</p>
+</a><a href="/content-authoring/commits/db77084c6c95c2ddda62b95077c14a3a24d1a87b/index.html">              <p>Support Translation Interpolations</p>
 
-</a><a href="../817101a8a19ea0bb50e0a06c4164aac68b217232/" class="commit-node commit-node--full">              <p>Maintain scrollY across Turbolinks submit redirect</p>
+</a><a href="/content-authoring/commits/b3c95eb3ca43cce5f63f842dc00f833f704475fc/index.html">              <p>Maintain scrollY across Turbolinks submit redirect</p>
 
 </a>        </nav>
       </details>
 
-      <article class="
-        commit-content
-        commit-content--double
-        content__item
-        content__item--grow
-      ">
-        <section class="commit commit--message">
+      <article class="flex-grow p-4 md:flex md:justify-center md:h-screen-fit md:p-8 md:overflow-y-auto lg:w-7/12">
+        <section class="prose prose-lg md:prose-xl">
 
           <h1 id="tweak-our-copy-until-its-just-right">Tweak our Copy until it&rsquo;s <em>just</em> right</h1>
 
@@ -440,29 +399,18 @@ the block&rsquo;s scope of execution</em>.</p>
 <p><img src="https://user-images.githubusercontent.com/2575027/95688395-d1c2a280-0bd7-11eb-9f69-dce67d1dbb7b.gif" alt="editing translation in mobile dimensions" /></p>
 
         </section>
+      </article>
 
-          <aside class="commit commit--diff commit--long-content">
-              <details
-  id="Gemfile"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse Gemfile</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+        <aside class="md:h-screen-fit md:overflow-y-auto lg:w-5/12">
+            <details id="Gemfile" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand Gemfile</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      Gemfile
-    </code>
+    <code class="break-all">Gemfile</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/Gemfile b/Gemfile
 index 025dcb7..4b865c1 100644
 </span><span class="gd">--- a/Gemfile
@@ -478,27 +426,15 @@ index 025dcb7..4b865c1 100644
    gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 </code></pre></div></details>
 
-              <details
-  id="Gemfile.lock"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse Gemfile.lock</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="Gemfile.lock" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand Gemfile.lock</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      Gemfile.lock
-    </code>
+    <code class="break-all">Gemfile.lock</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/Gemfile.lock b/Gemfile.lock
 index 49c5023..e699371 100644
 </span><span class="gd">--- a/Gemfile.lock
@@ -523,27 +459,15 @@ index 49c5023..e699371 100644
    pg (~&gt; 1.1)
 </code></pre></div></details>
 
-              <details
-  id="app/controllers/translations_controller.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/controllers/translations_controller.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="app/controllers/translations_controller.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/controllers/translations_controller.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      app/controllers/translations_controller.rb
-    </code>
+    <code class="break-all">app/controllers/translations_controller.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/controllers/translations_controller.rb b/app/controllers/translations_controller.rb
 </span><span class="p">new file mode 100644
 </span><span class="gh">index 0000000..9f85449
@@ -569,27 +493,15 @@ index 49c5023..e699371 100644
 +end
 </span></code></pre></div></details>
 
-              <details
-  id="app/helpers/application_helper.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/helpers/application_helper.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="app/helpers/application_helper.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/helpers/application_helper.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      app/helpers/application_helper.rb
-    </code>
+    <code class="break-all">app/helpers/application_helper.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/helpers/application_helper.rb b/app/helpers/application_helper.rb
 index de6be79..347c95d 100644
 </span><span class="gd">--- a/app/helpers/application_helper.rb
@@ -617,27 +529,15 @@ index de6be79..347c95d 100644
 </span> end
 </code></pre></div></details>
 
-              <details
-  id="app/javascript/controllers/trix_form_controller.js"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/javascript/controllers/trix_form_controller.js</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="app/javascript/controllers/trix_form_controller.js" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/javascript/controllers/trix_form_controller.js</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      app/javascript/controllers/trix_form_controller.js
-    </code>
+    <code class="break-all">app/javascript/controllers/trix_form_controller.js</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/javascript/controllers/trix_form_controller.js b/app/javascript/controllers/trix_form_controller.js
 </span><span class="p">new file mode 100644
 </span><span class="gh">index 0000000..9156e6a
@@ -685,27 +585,15 @@ index de6be79..347c95d 100644
 +}
 </span></code></pre></div></details>
 
-              <details
-  id="app/javascript/packs/application.css"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/javascript/packs/application.css</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="app/javascript/packs/application.css" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/javascript/packs/application.css</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      app/javascript/packs/application.css
-    </code>
+    <code class="break-all">app/javascript/packs/application.css</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/javascript/packs/application.css b/app/javascript/packs/application.css
 index 76fcadc..65c8d71 100644
 </span><span class="gd">--- a/app/javascript/packs/application.css
@@ -737,27 +625,15 @@ index 76fcadc..65c8d71 100644
 +}
 </span></code></pre></div></details>
 
-              <details
-  id="app/models/translation.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/models/translation.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="app/models/translation.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/models/translation.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      app/models/translation.rb
-    </code>
+    <code class="break-all">app/models/translation.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/models/translation.rb b/app/models/translation.rb
 </span><span class="p">new file mode 100644
 </span><span class="gh">index 0000000..0d3cfd9
@@ -808,27 +684,15 @@ index 76fcadc..65c8d71 100644
 +end
 </span></code></pre></div></details>
 
-              <details
-  id="app/views/marketings/index.html.erb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/views/marketings/index.html.erb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="app/views/marketings/index.html.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/views/marketings/index.html.erb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      app/views/marketings/index.html.erb
-    </code>
+    <code class="break-all">app/views/marketings/index.html.erb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/marketings/index.html.erb b/app/views/marketings/index.html.erb
 index b00ee65..390c2a3 100644
 </span><span class="gd">--- a/app/views/marketings/index.html.erb
@@ -897,27 +761,15 @@ index b00ee65..390c2a3 100644
    &lt;button class="mx-auto lg:mx-0 hover:underline bg-gradient-to-r from-orange-300 to-orange-400 text-gray-800 font-extrabold rounded py-4 px-8 shadow opacity-75 my-6"&gt;
 </code></pre></div></details>
 
-              <details
-  id="app/views/translations/_form.html.erb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/views/translations/_form.html.erb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="app/views/translations/_form.html.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/views/translations/_form.html.erb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      app/views/translations/_form.html.erb
-    </code>
+    <code class="break-all">app/views/translations/_form.html.erb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/translations/_form.html.erb b/app/views/translations/_form.html.erb
 </span><span class="p">new file mode 100644
 </span><span class="gh">index 0000000..1e848bd
@@ -970,27 +822,15 @@ index b00ee65..390c2a3 100644
 +&lt;% end %&gt;
 </span></code></pre></div></details>
 
-              <details
-  id="app/views/translations/_translation.html.erb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse app/views/translations/_translation.html.erb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="app/views/translations/_translation.html.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand app/views/translations/_translation.html.erb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      app/views/translations/_translation.html.erb
-    </code>
+    <code class="break-all">app/views/translations/_translation.html.erb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/translations/_translation.html.erb b/app/views/translations/_translation.html.erb
 </span><span class="p">new file mode 100644
 </span><span class="gh">index 0000000..4dd9a18
@@ -1000,27 +840,15 @@ index b00ee65..390c2a3 100644
 <span class="gi">+&lt;%= render "translations/form", translation: translation %&gt;
 </span></code></pre></div></details>
 
-              <details
-  id="config/initializers/i18n.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse config/initializers/i18n.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="config/initializers/i18n.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand config/initializers/i18n.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      config/initializers/i18n.rb
-    </code>
+    <code class="break-all">config/initializers/i18n.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/config/initializers/i18n.rb b/config/initializers/i18n.rb
 </span><span class="p">new file mode 100644
 </span><span class="gh">index 0000000..502d451
@@ -1037,27 +865,15 @@ index b00ee65..390c2a3 100644
 +end
 </span></code></pre></div></details>
 
-              <details
-  id="config/routes.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse config/routes.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="config/routes.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand config/routes.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      config/routes.rb
-    </code>
+    <code class="break-all">config/routes.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/config/routes.rb b/config/routes.rb
 index 76693b1..9782e5e 100644
 </span><span class="gd">--- a/config/routes.rb
@@ -1071,27 +887,15 @@ index 76693b1..9782e5e 100644
  end
 </code></pre></div></details>
 
-              <details
-  id="db/migrate/20201002043200_create_i18n_postgres_json_backend_translations.i18n_postgres_json_engine.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse db/migrate/20201002043200_create_i18n_postgres_json_backend_translations.i18n_postgres_json_engine.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="db/migrate/20201002043200_create_i18n_postgres_json_backend_translations.i18n_postgres_json_engine.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand db/migrate/20201002043200_create_i18n_postgres_json_backend_translations.i18n_postgres_json_engine.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      db/migrate/20201002043200_create_i18n_postgres_json_backend_translations.i18n_postgres_json_engine.rb
-    </code>
+    <code class="break-all">db/migrate/20201002043200_create_i18n_postgres_json_backend_translations.i18n_postgres_json_engine.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/db/migrate/20201002043200_create_i18n_postgres_json_backend_translations.i18n_postgres_json_engine.rb b/db/migrate/20201002043200_create_i18n_postgres_json_backend_translations.i18n_postgres_json_engine.rb
 </span><span class="p">new file mode 100644
 </span><span class="gh">index 0000000..7bfb922
@@ -1112,27 +916,15 @@ index 76693b1..9782e5e 100644
 +end
 </span></code></pre></div></details>
 
-              <details
-  id="db/schema.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse db/schema.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="db/schema.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand db/schema.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      db/schema.rb
-    </code>
+    <code class="break-all">db/schema.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/db/schema.rb b/db/schema.rb
 index 2daeec1..e0a4e4a 100644
 </span><span class="gd">--- a/db/schema.rb
@@ -1163,27 +955,15 @@ index 2daeec1..e0a4e4a 100644
  end
 </code></pre></div></details>
 
-              <details
-  id="test/controllers/marketings_controller_test.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse test/controllers/marketings_controller_test.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="test/controllers/marketings_controller_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand test/controllers/marketings_controller_test.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      test/controllers/marketings_controller_test.rb
-    </code>
+    <code class="break-all">test/controllers/marketings_controller_test.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/controllers/marketings_controller_test.rb b/test/controllers/marketings_controller_test.rb
 index 6850026..6e05b54 100644
 </span><span class="gd">--- a/test/controllers/marketings_controller_test.rb
@@ -1212,27 +992,15 @@ index 6850026..6e05b54 100644
 </span> end
 </code></pre></div></details>
 
-              <details
-  id="test/controllers/translations_controller_test.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse test/controllers/translations_controller_test.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="test/controllers/translations_controller_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand test/controllers/translations_controller_test.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      test/controllers/translations_controller_test.rb
-    </code>
+    <code class="break-all">test/controllers/translations_controller_test.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/controllers/translations_controller_test.rb b/test/controllers/translations_controller_test.rb
 </span><span class="p">new file mode 100644
 </span><span class="gh">index 0000000..335dd55
@@ -1265,27 +1033,15 @@ index 6850026..6e05b54 100644
 +end
 </span></code></pre></div></details>
 
-              <details
-  id="test/models/translation_test.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse test/models/translation_test.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="test/models/translation_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand test/models/translation_test.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      test/models/translation_test.rb
-    </code>
+    <code class="break-all">test/models/translation_test.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/models/translation_test.rb b/test/models/translation_test.rb
 </span><span class="p">new file mode 100644
 </span><span class="gh">index 0000000..9bae499
@@ -1387,27 +1143,15 @@ index 6850026..6e05b54 100644
 +end
 </span></code></pre></div></details>
 
-              <details
-  id="test/system/translations_test.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse test/system/translations_test.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="test/system/translations_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand test/system/translations_test.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      test/system/translations_test.rb
-    </code>
+    <code class="break-all">test/system/translations_test.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/system/translations_test.rb b/test/system/translations_test.rb
 </span><span class="p">new file mode 100644
 </span><span class="gh">index 0000000..c900990
@@ -1438,27 +1182,15 @@ index 6850026..6e05b54 100644
 +end
 </span></code></pre></div></details>
 
-              <details
-  id="test/test_helper.rb"
-  open
-  class="file"
->
-  <summary class="file__name">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--close"><title>Collapse test/test_helper.rb</title>
-  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 01.708 0l6 6a.5.5 0 01-.708.708L8 5.707l-5.646 5.647a.5.5 0 01-.708-.708l6-6z" clip-rule="evenodd"></path>
+            <details id="test/test_helper.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
 </svg>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" role="img" class="file__toggle file__toggle--open"><title>Expand test/test_helper.rb</title>
-  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z" clip-rule="evenodd"></path>
-</svg>
-
-
-    <code>
-      test/test_helper.rb
-    </code>
+    <code class="break-all">test/test_helper.rb</code>
   </summary>
-
 <div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/test_helper.rb b/test/test_helper.rb
 index 47b598d..daaef5c 100644
 </span><span class="gd">--- a/test/test_helper.rb
@@ -1483,8 +1215,7 @@ index 47b598d..daaef5c 100644
 </span> end
 </code></pre></div></details>
 
-          </aside>
-      </article>
+        </aside>
     </main>
   </body>
 </html>

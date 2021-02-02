@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Add support for rendering Rich Text translations</title>
+    <script src="../../javascripts/site.js"></script>
+    <link href="../../stylesheets/syntax.css" rel="stylesheet" />
+    <script type="module">
+      import "https://cdn.skypack.dev/@hotwired/turbo@latest"
+
+      addEventListener("turbo:load", () => {
+        for (let current of document.querySelectorAll('[aria-current="page"]')) {
+          current.removeAttribute("aria-current")
+        }
+
+        for (const link of document.querySelectorAll("a")) {
+          if (link.pathname === window.location.pathname) {
+            link.setAttribute("aria-current", "page")
+            link.scrollIntoView({ block: "center", scroll: "smooth" })
+          }
+        }
+      })
+    </script>
+  </head>
+  <body class="min-h-screen">
+    <header class="flex flex-row h-12 border-b">
+      <h1 class="flex items-center justify-center w-full md:border-r md:w-96">
+<a href="/content-authoring/index.html">          content-authoring
+</a>      </h1>
+
+      <nav class="flex flex-grow justify-between items-center border-t p-3 fixed inset-x-0 bottom-0 bg-white z-10 md:px-4 md:py-0 md:bg-transparent md:border-0 md:relative">
+
+<a href="/content-authoring/commits/55714315b8a48a3e0ef9907fc130cfd64c6da00e/index.html">              &#8592; Previous
+</a>
+          <span class="flex-grow"><!-- ensure the links are pushed to the container's extremes --></span>
+
+<a href="/content-authoring/commits/db77084c6c95c2ddda62b95077c14a3a24d1a87b/index.html">              Next &#8594;
+</a>      </nav>
+    </header>
+
+    <main class="flex flex-col md:flex-row">
+      <details id="navigation" class="relative pb-8 md:h-screen-fit" data-turbo-permanent>
+        <summary class="cursor-pointer inset-0 top-auto list-none outline-none md:relative">
+          <span class="sr-only open:hidden">Expand History</span>
+          <span class="sr-only hidden open:initial">Collapse History</span>
+          <div class="md:h-screen-fit flex flex-col border-b border-t h-8 w-full justify-center md:w-8 md:border-r md:border-l md:border-t-0 open:absolute inset-x-0 bottom-0 top-auto md:top-0 md:left-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="transform rotate-90 open:-rotate-90 md:rotate-0 md:open:rotate-180">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+          </div>
+        </summary>
+
+        <nav class="flex flex-col px-4 my-4 overflow-y-auto h-48 w-screen current-within:font-bold md:h-screen-fit md:w-96 md:my-auto md:p-2 md:pr-10 md:space-y-2">
+<a href="/content-authoring/commits/f4d83ef8fa820cb0758fd7623d8593ccc9a61f68/index.html">              <p>[SKIP]: Create <code>git-read</code> GitHub Action</p>
+
+</a><a href="/content-authoring/commits/8a56150e392317c89e2b25f386e44f2538e3e8f5/index.html">              <p>[GENERATED]: Initial Commit</p>
+
+</a><a href="/content-authoring/commits/d918fb993e07525c1e10fd1d8468f772094e0340/index.html">              <p>[GENERATED]: Install ActiveStorage and ActionText</p>
+
+</a><a href="/content-authoring/commits/74ba930ace4538eeb6f2a043bacc3ec0b0cc05de/index.html">              <p>[SKIP]: Install TailwindCSS</p>
+
+</a><a href="/content-authoring/commits/04f9ab2c7df520716c882a055751f4202a854890/index.html">              <p>Internationalization</p>
+
+</a><a href="/content-authoring/commits/9c9446ff89a718f35c45ee8a681d0d2b10f8c0d5/index.html">              <p>Add style to our page</p>
+
+</a><a href="/content-authoring/commits/4cc435fb50834abb362aba45a4a62b153e7a8459/index.html">              <p>Tweak our Copy until it&#39;s <em>just</em> right</p>
+
+</a><a href="/content-authoring/commits/55714315b8a48a3e0ef9907fc130cfd64c6da00e/index.html">              <p>Limit Edits to an Authenticated Admin</p>
+
+</a><a href="/content-authoring/commits/28b7e2ecd1a77b440eb59e2a2ce7f5f9d2c6f55c/index.html">              <p>Add support for rendering Rich Text translations</p>
+
+</a><a href="/content-authoring/commits/db77084c6c95c2ddda62b95077c14a3a24d1a87b/index.html">              <p>Support Translation Interpolations</p>
+
+</a><a href="/content-authoring/commits/b3c95eb3ca43cce5f63f842dc00f833f704475fc/index.html">              <p>Maintain scrollY across Turbolinks submit redirect</p>
+
+</a>        </nav>
+      </details>
+
+      <article class="flex-grow p-4 md:flex md:justify-center md:h-screen-fit md:p-8 md:overflow-y-auto lg:w-7/12">
+        <section class="prose prose-lg md:prose-xl">
+
+          <h1 id="add-support-for-rendering-rich-text-translations">Add support for rendering Rich Text translations</h1>
+
+        </section>
+      </article>
+
+        <aside class="md:h-screen-fit md:overflow-y-auto lg:w-5/12">
+            <details id="app/javascript/controllers/trix_form_controller.js" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/javascript/controllers/trix_form_controller.js</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/javascript/controllers/trix_form_controller.js b/app/javascript/controllers/trix_form_controller.js
+index 9156e6a..a5a1b48 100644
+</span><span class="gd">--- a/app/javascript/controllers/trix_form_controller.js
+</span><span class="gi">+++ b/app/javascript/controllers/trix_form_controller.js
+</span><span class="p">@@ -1,9 +1,15 @@</span>
+ import { Controller } from "stimulus"
+ 
+ export default class extends Controller {
+<span class="gd">-  static targets = [ "editor" ]
+</span><span class="gi">+  static targets = [ "editor", "toolbarAddition" ]
+</span> 
+   connect() {
+<span class="gi">+    const buttonRow = this.toolbarTarget.querySelector(".trix-button-row")
++
++    for (const target of this.toolbarAdditionTargets) {
++      if (buttonRow) buttonRow.append(target)
++    }
++
+</span>     this.dismiss()
+   }
+ 
+</code></pre></div></details>
+
+            <details id="app/javascript/packs/application.css" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/javascript/packs/application.css</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/javascript/packs/application.css b/app/javascript/packs/application.css
+index 65c8d71..d80bccc 100644
+</span><span class="gd">--- a/app/javascript/packs/application.css
+</span><span class="gi">+++ b/app/javascript/packs/application.css
+</span><span class="p">@@ -22,3 +22,7 @@</span> trix-toolbar .trix-button-row--end {
+ trix-toolbar .trix-button-group--block-tools {
+   @apply hidden;
+ }
+<span class="gi">+
++.trix-content a {
++  @apply underline;
++}
+</span></code></pre></div></details>
+
+            <details id="app/models/translation.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/models/translation.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/models/translation.rb b/app/models/translation.rb
+index 0d3cfd9..16a0df5 100644
+</span><span class="gd">--- a/app/models/translation.rb
+</span><span class="gi">+++ b/app/models/translation.rb
+</span><span class="p">@@ -16,7 +16,7 @@</span> class Translation
+   def value
+     content = ActionText::Content.new(super)
+ 
+<span class="gd">-    content.to_plain_text
+</span><span class="gi">+    plain? ? content.to_plain_text : content.html_safe
+</span>   end
+ 
+   def new_record?
+<span class="p">@@ -32,6 +32,14 @@</span> class Translation
+     end
+   end
+ 
+<span class="gi">+  def html?
++    key.to_s == "html" || %w[_html .html].any? { key.to_s.ends_with? _1 }
++  end
++
++  def plain?
++    !html?
++  end
++
+</span>   def to_key
+     [key.gsub(".", "_")]
+   end
+</code></pre></div></details>
+
+            <details id="app/views/marketings/index.html.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/views/marketings/index.html.erb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/marketings/index.html.erb b/app/views/marketings/index.html.erb
+index 390c2a3..cabb50f 100644
+</span><span class="gd">--- a/app/views/marketings/index.html.erb
+</span><span class="gi">+++ b/app/views/marketings/index.html.erb
+</span><span class="p">@@ -9,7 +9,7 @@</span>
+     &lt;/h1&gt;
+ 
+     &lt;div class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"&gt;
+<span class="gd">-      &lt;%= translate(".hero.subtitle.html") %&gt;
+</span><span class="gi">+      &lt;%= editable.translate(".hero.subtitle.html") %&gt;
+</span>     &lt;/div&gt;
+ 
+     &lt;button class="mx-auto lg:mx-0 hover:underline bg-gradient-to-r from-orange-300 to-orange-400 text-gray-800 font-extrabold rounded py-4 px-8 shadow opacity-75 my-2 md:my-6"&gt;
+</code></pre></div></details>
+
+            <details id="app/views/translations/_form.html.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/views/translations/_form.html.erb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/translations/_form.html.erb b/app/views/translations/_form.html.erb
+index 1e848bd..04eb447 100644
+</span><span class="gd">--- a/app/views/translations/_form.html.erb
+</span><span class="gi">+++ b/app/views/translations/_form.html.erb
+</span><span class="p">@@ -1,19 +1,20 @@</span>
+ &lt;%= form_with model: translation, class: "relative", data: {
+   controller: "trix-form",
+<span class="gd">-  action: "
+-    trix-file-accept-&gt;trix-form#reject
+</span><span class="gi">+  action: token_list(
++    { "trix-file-accept-&gt;trix-form#reject" =&gt; translation.plain? },
++    { "trix-file-accept-&gt;trix-form#showToolbar" =&gt; translation.html? }, "
+</span>     trix-focus@document-&gt;trix-form#dismissDismissUnlessFocused
+     click@document-&gt;trix-form#dismissUnlessContained
+     focusout-&gt;trix-form#dismissUnlessContained
+     reset-&gt;trix-form#dismiss
+<span class="gd">-  "
+</span><span class="gi">+  ")
+</span> } do |form| %&gt;
+   &lt;%= form.hidden_field :locale %&gt;
+   &lt;%= form.hidden_field :key %&gt;
+ 
+   &lt;trix-toolbar id="&lt;%= dom_id(translation, :toolbar) %&gt;" hidden&gt;
+     &lt;div class="trix-button-row trix-button-row--end"&gt;
+<span class="gd">-      &lt;span class="trix-button-group"&gt;
+</span><span class="gi">+      &lt;span class="trix-button-group" data-trix-form-target="toolbarAddition"&gt;
+</span>         &lt;% tag.with_options class: "trix-button trix-button--icon", tabindex: -1 do |trix| %&gt;
+           &lt;%= trix.button type: :submit, title: "Save" do %&gt;
+             &lt;svg class="text-green-500" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"&gt;
+<span class="p">@@ -37,8 +38,8 @@</span>
+   &lt;/trix-toolbar&gt;
+ 
+   &lt;%= rich_text_area_tag "translation[value]", translation.value,
+<span class="gd">-    class: "outline-none focus:shadow-outline min-h-0 border-0 p-0",
+</span><span class="gi">+    class: class_names("outline-none focus:shadow-outline min-h-0 border-0 p-0", { "trix-content": translation.html? }),
+</span>     aria: { label: translation.key },
+     data: { trix_form_target: "editor" },
+<span class="gd">-    toolbar: dom_id(translation, :toolbar) %&gt;
+</span><span class="gi">+    toolbar: (dom_id(translation, :toolbar) if translation.plain?) %&gt;
+</span> &lt;% end %&gt;
+</code></pre></div></details>
+
+            <details id="app/views/translations/_translation.html.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/views/translations/_translation.html.erb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/translations/_translation.html.erb b/app/views/translations/_translation.html.erb
+index 0a71547..15868b2 100644
+</span><span class="gd">--- a/app/views/translations/_translation.html.erb
+</span><span class="gi">+++ b/app/views/translations/_translation.html.erb
+</span><span class="p">@@ -1 +1,5 @@</span>
+<span class="gd">-&lt;%= translation %&gt;
+</span><span class="gi">+&lt;% if translation.html? %&gt;
++  &lt;span class="trix-content"&gt;&lt;%= translation %&gt;&lt;/span&gt;
++&lt;% else %&gt;
++  &lt;%= translation %&gt;
++&lt;% end %&gt;
+</span></code></pre></div></details>
+
+            <details id="test/controllers/marketings_controller_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">test/controllers/marketings_controller_test.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/controllers/marketings_controller_test.rb b/test/controllers/marketings_controller_test.rb
+index f305cfb..7fdb688 100644
+</span><span class="gd">--- a/test/controllers/marketings_controller_test.rb
+</span><span class="gi">+++ b/test/controllers/marketings_controller_test.rb
+</span><span class="p">@@ -24,6 +24,15 @@</span> class MarketingsControllerTest &lt; ActionDispatch::IntegrationTest
+     end
+   end
+ 
+<span class="gi">+  test "#index renders HTML translations as HTML" do
++    with_translations en: { marketings: { index: { hero: { subtitle: { html: "&lt;strong&gt;Bold&lt;/strong&gt;" } } } } } do
++      get root_path
++
++      assert_response :success
++      assert_select ".trix-content strong", text: "Bold"
++    end
++  end
++
+</span>   private
+ 
+   def assert_trix_editor(name, value)
+</code></pre></div></details>
+
+            <details id="test/models/translation_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">test/models/translation_test.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/models/translation_test.rb b/test/models/translation_test.rb
+index 9bae499..3719e58 100644
+</span><span class="gd">--- a/test/models/translation_test.rb
+</span><span class="gi">+++ b/test/models/translation_test.rb
+</span><span class="p">@@ -55,6 +55,36 @@</span> class TranslationTest &lt; ActiveSupport::TestCase
+     end
+   end
+ 
+<span class="gi">+  test "#html? returns true when the key ends with html" do
++    assert_predicate Translation.new(key: "key_html"), :html?
++    assert_predicate Translation.new(key: "key.html"), :html?
++    assert_predicate Translation.new(key: "html"), :html?
++  end
++
++  test "#html? returns false when the key does not end with html" do
++    assert_not_predicate Translation.new(key: "key"), :html?
++    assert_not_predicate Translation.new(key: "html.key"), :html?
++  end
++
++  test "#plain? returns true when the key does no end with html" do
++    assert_predicate Translation.new(key: "key"), :plain?
++    assert_predicate Translation.new(key: "html.key"), :plain?
++  end
++
++  test "#plain? returns false when the key ends with html" do
++    assert_not_predicate Translation.new(key: "key_html"), :plain?
++    assert_not_predicate Translation.new(key: "key.html"), :plain?
++    assert_not_predicate Translation.new(key: "html"), :plain?
++  end
++
++  test "#value contains HTML elements for HTML translations" do
++    translation = Translation.new(key: :html, value: "&lt;strong&gt;text&lt;/strong&gt;")
++
++    value = translation.value
++
++    assert_equal "&lt;strong&gt;text&lt;/strong&gt;", value
++  end
++
+</span>   test "#value strips HTML elements for plain text translations" do
+     translation = Translation.new(key: :plain, value: "&lt;strong&gt;text&lt;/strong&gt;")
+ 
+</code></pre></div></details>
+
+        </aside>
+    </main>
+  </body>
+</html>

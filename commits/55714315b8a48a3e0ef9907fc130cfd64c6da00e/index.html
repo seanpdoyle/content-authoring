@@ -1,0 +1,410 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Limit Edits to an Authenticated Admin</title>
+    <script src="../../javascripts/site.js"></script>
+    <link href="../../stylesheets/syntax.css" rel="stylesheet" />
+    <script type="module">
+      import "https://cdn.skypack.dev/@hotwired/turbo@latest"
+
+      addEventListener("turbo:load", () => {
+        for (let current of document.querySelectorAll('[aria-current="page"]')) {
+          current.removeAttribute("aria-current")
+        }
+
+        for (const link of document.querySelectorAll("a")) {
+          if (link.pathname === window.location.pathname) {
+            link.setAttribute("aria-current", "page")
+            link.scrollIntoView({ block: "center", scroll: "smooth" })
+          }
+        }
+      })
+    </script>
+  </head>
+  <body class="min-h-screen">
+    <header class="flex flex-row h-12 border-b">
+      <h1 class="flex items-center justify-center w-full md:border-r md:w-96">
+<a href="/content-authoring/index.html">          content-authoring
+</a>      </h1>
+
+      <nav class="flex flex-grow justify-between items-center border-t p-3 fixed inset-x-0 bottom-0 bg-white z-10 md:px-4 md:py-0 md:bg-transparent md:border-0 md:relative">
+
+<a href="/content-authoring/commits/4cc435fb50834abb362aba45a4a62b153e7a8459/index.html">              &#8592; Previous
+</a>
+          <span class="flex-grow"><!-- ensure the links are pushed to the container's extremes --></span>
+
+<a href="/content-authoring/commits/28b7e2ecd1a77b440eb59e2a2ce7f5f9d2c6f55c/index.html">              Next &#8594;
+</a>      </nav>
+    </header>
+
+    <main class="flex flex-col md:flex-row">
+      <details id="navigation" class="relative pb-8 md:h-screen-fit" data-turbo-permanent>
+        <summary class="cursor-pointer inset-0 top-auto list-none outline-none md:relative">
+          <span class="sr-only open:hidden">Expand History</span>
+          <span class="sr-only hidden open:initial">Collapse History</span>
+          <div class="md:h-screen-fit flex flex-col border-b border-t h-8 w-full justify-center md:w-8 md:border-r md:border-l md:border-t-0 open:absolute inset-x-0 bottom-0 top-auto md:top-0 md:left-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="transform rotate-90 open:-rotate-90 md:rotate-0 md:open:rotate-180">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+          </div>
+        </summary>
+
+        <nav class="flex flex-col px-4 my-4 overflow-y-auto h-48 w-screen current-within:font-bold md:h-screen-fit md:w-96 md:my-auto md:p-2 md:pr-10 md:space-y-2">
+<a href="/content-authoring/commits/f4d83ef8fa820cb0758fd7623d8593ccc9a61f68/index.html">              <p>[SKIP]: Create <code>git-read</code> GitHub Action</p>
+
+</a><a href="/content-authoring/commits/8a56150e392317c89e2b25f386e44f2538e3e8f5/index.html">              <p>[GENERATED]: Initial Commit</p>
+
+</a><a href="/content-authoring/commits/d918fb993e07525c1e10fd1d8468f772094e0340/index.html">              <p>[GENERATED]: Install ActiveStorage and ActionText</p>
+
+</a><a href="/content-authoring/commits/74ba930ace4538eeb6f2a043bacc3ec0b0cc05de/index.html">              <p>[SKIP]: Install TailwindCSS</p>
+
+</a><a href="/content-authoring/commits/04f9ab2c7df520716c882a055751f4202a854890/index.html">              <p>Internationalization</p>
+
+</a><a href="/content-authoring/commits/9c9446ff89a718f35c45ee8a681d0d2b10f8c0d5/index.html">              <p>Add style to our page</p>
+
+</a><a href="/content-authoring/commits/4cc435fb50834abb362aba45a4a62b153e7a8459/index.html">              <p>Tweak our Copy until it&#39;s <em>just</em> right</p>
+
+</a><a href="/content-authoring/commits/55714315b8a48a3e0ef9907fc130cfd64c6da00e/index.html">              <p>Limit Edits to an Authenticated Admin</p>
+
+</a><a href="/content-authoring/commits/28b7e2ecd1a77b440eb59e2a2ce7f5f9d2c6f55c/index.html">              <p>Add support for rendering Rich Text translations</p>
+
+</a><a href="/content-authoring/commits/db77084c6c95c2ddda62b95077c14a3a24d1a87b/index.html">              <p>Support Translation Interpolations</p>
+
+</a><a href="/content-authoring/commits/b3c95eb3ca43cce5f63f842dc00f833f704475fc/index.html">              <p>Maintain scrollY across Turbolinks submit redirect</p>
+
+</a>        </nav>
+      </details>
+
+      <article class="flex-grow p-4 md:flex md:justify-center md:h-screen-fit md:p-8 md:overflow-y-auto lg:w-7/12">
+        <section class="prose prose-lg md:prose-xl">
+
+          <h1 id="limit-edits-to-an-authenticated-admin">Limit Edits to an Authenticated Admin</h1>
+
+        </section>
+      </article>
+
+        <aside class="md:h-screen-fit md:overflow-y-auto lg:w-5/12">
+            <details id="app/controllers/admin/application_controller.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/controllers/admin/application_controller.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/controllers/admin/application_controller.rb b/app/controllers/admin/application_controller.rb
+</span><span class="p">new file mode 100644
+</span><span class="gh">index 0000000..b3322fe
+</span><span class="gd">--- /dev/null
+</span><span class="gi">+++ b/app/controllers/admin/application_controller.rb
+</span><span class="p">@@ -0,0 +1,5 @@</span>
+<span class="gi">+module Admin
++  class ApplicationController &lt; ::ApplicationController
++    before_action { head :forbidden unless request.variant.admin? }
++  end
++end
+</span></code></pre></div></details>
+
+            <details id="app/controllers/admin/translations_controller.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/controllers/admin/translations_controller.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/controllers/admin/translations_controller.rb b/app/controllers/admin/translations_controller.rb
+</span><span class="p">new file mode 100644
+</span><span class="gh">index 0000000..a360641
+</span><span class="gd">--- /dev/null
+</span><span class="gi">+++ b/app/controllers/admin/translations_controller.rb
+</span><span class="p">@@ -0,0 +1,19 @@</span>
+<span class="gi">+module Admin
++  class TranslationsController &lt; ApplicationController
++    def create
++      translation = Translation.new(translation_params)
++
++      if translation.save
++        redirect_back fallback_location: root_url
++      else
++        head :unprocessable_entity
++      end
++    end
++
++    private
++
++    def translation_params
++      params.require(:translation).permit(:locale, :key, :value)
++    end
++  end
++end
+</span></code></pre></div></details>
+
+            <details id="app/controllers/application_controller.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/controllers/application_controller.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/controllers/application_controller.rb b/app/controllers/application_controller.rb
+index 09705d1..e684d65 100644
+</span><span class="gd">--- a/app/controllers/application_controller.rb
+</span><span class="gi">+++ b/app/controllers/application_controller.rb
+</span><span class="p">@@ -1,2 +1,3 @@</span>
+ class ApplicationController &lt; ActionController::Base
+<span class="gi">+  before_action { request.variant = :admin if cookies[:admin] }
+</span> end
+</code></pre></div></details>
+
+            <details id="app/controllers/sessions_controller.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/controllers/sessions_controller.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/controllers/sessions_controller.rb b/app/controllers/sessions_controller.rb
+</span><span class="p">new file mode 100644
+</span><span class="gh">index 0000000..35b3c8c
+</span><span class="gd">--- /dev/null
+</span><span class="gi">+++ b/app/controllers/sessions_controller.rb
+</span><span class="p">@@ -0,0 +1,13 @@</span>
+<span class="gi">+class SessionsController &lt; ApplicationController
++  def create
++    cookies[:admin] = true
++
++    redirect_back fallback_location: root_url
++  end
++
++  def destroy
++    cookies.delete(:admin)
++
++    redirect_back fallback_location: root_url
++  end
++end
+</span></code></pre></div></details>
+
+            <details id="app/views/application/_header.html.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/views/application/_header.html.erb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/application/_header.html.erb b/app/views/application/_header.html.erb
+index 1216183..bfb5bcc 100644
+</span><span class="gd">--- a/app/views/application/_header.html.erb
+</span><span class="gi">+++ b/app/views/application/_header.html.erb
+</span><span class="p">@@ -32,11 +32,17 @@</span>
+ 
+       &lt;ul class="list-reset lg:flex justify-end flex-1 items-center"&gt;
+         &lt;li class="mr-3"&gt;
+<span class="gd">-          &lt;a
+-            class="inline-block py-2 px-4 text-black font-bold no-underline"
+-            href="#"
+-            &gt;Active&lt;/a
+-          &gt;
+</span><span class="gi">+          &lt;% with_options class: "inline-block py-2 px-4 text-black font-bold no-underline" do |admin| %&gt;
++            &lt;% if request.variant.admin? %&gt;
++              &lt;%= admin.button_to session_path, method: :delete do %&gt;
++                Preview
++              &lt;% end %&gt;
++            &lt;% else %&gt;
++              &lt;%= admin.button_to sessions_path, method: :post do %&gt;
++                Edit
++              &lt;% end %&gt;
++            &lt;% end %&gt;
++          &lt;% end %&gt;
+</span>         &lt;/li&gt;
+         &lt;li class="mr-3"&gt;
+           &lt;a
+</code></pre></div></details>
+
+            <details id="app/views/translations/_translation.html+admin.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/views/translations/_translation.html+admin.erb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/translations/_translation.html+admin.erb b/app/views/translations/_translation.html+admin.erb
+</span><span class="p">new file mode 100644
+</span><span class="gh">index 0000000..4dd9a18
+</span><span class="gd">--- /dev/null
+</span><span class="gi">+++ b/app/views/translations/_translation.html+admin.erb
+</span><span class="p">@@ -0,0 +1 @@</span>
+<span class="gi">+&lt;%= render "translations/form", translation: translation %&gt;
+</span></code></pre></div></details>
+
+            <details id="app/views/translations/_translation.html.erb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/views/translations/_translation.html.erb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/views/translations/_translation.html.erb b/app/views/translations/_translation.html.erb
+index 4dd9a18..0a71547 100644
+</span><span class="gd">--- a/app/views/translations/_translation.html.erb
+</span><span class="gi">+++ b/app/views/translations/_translation.html.erb
+</span><span class="p">@@ -1 +1 @@</span>
+<span class="gd">-&lt;%= render "translations/form", translation: translation %&gt;
+</span><span class="gi">+&lt;%= translation %&gt;
+</span></code></pre></div></details>
+
+            <details id="config/routes.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">config/routes.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/config/routes.rb b/config/routes.rb
+index 9782e5e..11c457d 100644
+</span><span class="gd">--- a/config/routes.rb
+</span><span class="gi">+++ b/config/routes.rb
+</span><span class="p">@@ -1,6 +1,11 @@</span>
+ Rails.application.routes.draw do
+   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+<span class="gd">-  resources :translations, only: :create
+</span><span class="gi">+  scope module: :admin do
++    resources :translations, only: :create
++  end
++
++  resources :sessions, only: :create
++  resource :session, only: :destroy
+</span> 
+   root to: "marketings#index"
+ end
+</code></pre></div></details>
+
+            <details id="test/controllers/translations_controller_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">test/controllers/translations_controller_test.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/controllers/translations_controller_test.rb b/test/controllers/admin/translations_controller_test.rb
+</span><span class="p">similarity index 70%
+rename from test/controllers/translations_controller_test.rb
+rename to test/controllers/admin/translations_controller_test.rb
+</span><span class="gh">index 335dd55..8b03371 100644
+</span><span class="gd">--- a/test/controllers/translations_controller_test.rb
+</span><span class="gi">+++ b/test/controllers/admin/translations_controller_test.rb
+</span><span class="p">@@ -1,8 +1,9 @@</span>
+ require "test_helper"
+ 
+<span class="gd">-class TranslationsControllerTest &lt; ActionDispatch::IntegrationTest
+</span><span class="gi">+class Admin::TranslationsControllerTest &lt; ActionDispatch::IntegrationTest
+</span>   test "#create with a valid Translation persists it to the I18n backend" do
+     with_translations en: { key: "value" } do
+<span class="gi">+      post sessions_path
+</span>       post translations_path, params: {
+         translation: { locale: :en, key: "key", value: "new value" }
+       }
+<span class="p">@@ -14,6 +15,7 @@</span> class TranslationsControllerTest &lt; ActionDispatch::IntegrationTest
+ 
+   test "#create with an valid Translation responds with an error" do
+     with_translations en: {} do
+<span class="gi">+      post sessions_path
+</span>       post translations_path, params: {
+         translation: { locale: :en, key: "missing", value: "" }
+       }
+<span class="p">@@ -21,4 +23,10 @@</span> class TranslationsControllerTest &lt; ActionDispatch::IntegrationTest
+       assert_response :unprocessable_entity
+     end
+   end
+<span class="gi">+
++  test "#create without authenticating responds with a Not Found status" do
++    post translations_path
++
++    assert_response :forbidden
++  end
+</span> end
+</code></pre></div></details>
+
+            <details id="test/controllers/marketings_controller_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">test/controllers/marketings_controller_test.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/controllers/marketings_controller_test.rb b/test/controllers/marketings_controller_test.rb
+index 6e05b54..f305cfb 100644
+</span><span class="gd">--- a/test/controllers/marketings_controller_test.rb
+</span><span class="gi">+++ b/test/controllers/marketings_controller_test.rb
+</span><span class="p">@@ -3,7 +3,18 @@</span> require "test_helper"
+ class MarketingsControllerTest &lt; ActionDispatch::IntegrationTest
+   include ActionView::Helpers::TranslationHelper
+ 
+<span class="gd">-  test "#index renders editors for copy" do
+</span><span class="gi">+  test "#index renders marketing copy" do
++    get root_path
++
++    assert_response :success
++    with_options scope: [:marketings, :index, :hero] do |i18n|
++      assert_select "title", text: i18n.translate(:title)
++      assert_select "h1", text: i18n.translate(:title)
++    end
++  end
++
++  test "#index renders editors for copy when authenticated" do
++    post sessions_path
+</span>     get root_path
+ 
+     assert_response :success
+</code></pre></div></details>
+
+            <details id="test/system/translations_test.rb" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">test/system/translations_test.rb</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/test/system/translations_test.rb b/test/system/translations_test.rb
+index c900990..86fa8e6 100644
+</span><span class="gd">--- a/test/system/translations_test.rb
+</span><span class="gi">+++ b/test/system/translations_test.rb
+</span><span class="p">@@ -8,6 +8,7 @@</span> class TranslationsTest &lt; ApplicationSystemTestCase
+       translation = translate("marketings.index.hero.title")
+ 
+       visit root_path
+<span class="gi">+      click_on "Edit"
+</span>       within "h1", text: translation do
+         find(:rich_text_area).click
+         fill_in_rich_text_area with: "New Hero Title"
+</code></pre></div></details>
+
+        </aside>
+    </main>
+  </body>
+</html>

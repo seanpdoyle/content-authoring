@@ -5,10 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title># README
-</title>
-    <script src="javascripts/site.js"></script>
-    <link href="stylesheets/syntax.css" rel="stylesheet" />
+    <title>Maintain scrollY across Turbolinks submit redirect</title>
+    <script src="../../javascripts/site.js"></script>
+    <link href="../../stylesheets/syntax.css" rel="stylesheet" />
     <script type="module">
       import "https://cdn.skypack.dev/@hotwired/turbo@latest"
 
@@ -33,10 +32,12 @@
 </a>      </h1>
 
       <nav class="flex flex-grow justify-between items-center border-t p-3 fixed inset-x-0 bottom-0 bg-white z-10 md:px-4 md:py-0 md:bg-transparent md:border-0 md:relative">
+
+<a href="/content-authoring/commits/db77084c6c95c2ddda62b95077c14a3a24d1a87b/index.html">              &#8592; Previous
+</a>
           <span class="flex-grow"><!-- ensure the links are pushed to the container's extremes --></span>
 
-<a href="/content-authoring/commits/04f9ab2c7df520716c882a055751f4202a854890/index.html">            Get Started &#8594;
-</a>      </nav>
+      </nav>
     </header>
 
     <main class="flex flex-col md:flex-row">
@@ -78,31 +79,67 @@
 </a>        </nav>
       </details>
 
-      <article class="flex-grow p-4 md:flex md:justify-center md:h-screen-fit md:p-8 md:overflow-y-auto ">
+      <article class="flex-grow p-4 md:flex md:justify-center md:h-screen-fit md:p-8 md:overflow-y-auto lg:w-7/12">
         <section class="prose prose-lg md:prose-xl">
 
-          <h1 id="readme">README</h1>
-
-<p>This README would normally document whatever steps are necessary to get the
-application up and running.</p>
-
-<p>Things you may want to cover:</p>
-
-<ul>
-<li><p>Ruby version</p></li>
-<li><p>System dependencies</p></li>
-<li><p>Configuration</p></li>
-<li><p>Database creation</p></li>
-<li><p>Database initialization</p></li>
-<li><p>How to run the test suite</p></li>
-<li><p>Services (job queues, cache servers, search engines, etc.)</p></li>
-<li><p>Deployment instructions</p></li>
-<li><p>&hellip;</p></li>
-</ul>
+          <h1 id="maintain-scrolly-across-turbolinks-submit-redirect">Maintain scrollY across Turbolinks submit redirect</h1>
 
         </section>
       </article>
 
+        <aside class="md:h-screen-fit md:overflow-y-auto lg:w-5/12">
+            <details id="app/javascript/initializers/index.js" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/javascript/initializers/index.js</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/javascript/initializers/index.js b/app/javascript/initializers/index.js
+</span><span class="p">new file mode 100644
+</span><span class="gh">index 0000000..2155842
+</span><span class="gd">--- /dev/null
+</span><span class="gi">+++ b/app/javascript/initializers/index.js
+</span><span class="p">@@ -0,0 +1,14 @@</span>
+<span class="gi">+let pathname, scrollY
++
++document.addEventListener("turbolinks:before-visit", () =&gt; {
++  pathname = window.location.pathname
++  scrollY = window.scrollY
++})
++
++document.addEventListener("turbolinks:render", () =&gt; {
++  if (window.location.pathname == pathname) {
++    window.scroll(0, scrollY)
++  }
++
++  pathname = scrollY = null
++})
+</span></code></pre></div></details>
+
+            <details id="app/javascript/packs/application.js" open class="border-l border-r">
+  <summary class="border-b cursor-pointer list-style-none p-4 outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" role="img" class="h-8 mr-4 inline transform rotate-90 open:-rotate-90">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L10.293 8 4.646 2.354a.5.5 0 010-.708z" clip-rule="evenodd"></path>
+</svg>
+
+
+    <code class="break-all">app/javascript/packs/application.js</code>
+  </summary>
+<div class="highlight"><pre class="highlight diff"><code><span class="gh">diff --git a/app/javascript/packs/application.js b/app/javascript/packs/application.js
+index 61ccf1e..efa9dc0 100644
+</span><span class="gd">--- a/app/javascript/packs/application.js
+</span><span class="gi">+++ b/app/javascript/packs/application.js
+</span><span class="p">@@ -22,3 +22,4 @@</span> ActiveStorage.start()
+ // const imagePath = (name) =&gt; images(name, true)
+ 
+ import "controllers"
+<span class="gi">+import "initializers"
+</span></code></pre></div></details>
+
+        </aside>
     </main>
   </body>
 </html>
